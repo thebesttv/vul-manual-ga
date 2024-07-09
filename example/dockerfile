@@ -14,21 +14,21 @@ ENV TBT_PACKAGE_VERSION=b6c43328eedfdc755e8ee378f8af2034ac67f62d
 ENV TBT_PACKAGE_URL=https://github.com/FFmpeg/FFmpeg.git
 
 # 添加用户 thebesttv
-RUN apt-get update && apt-get install -y sudo && \
+RUN apt-get update >/dev/null && apt-get install -y sudo >/dev/null && \
     groupadd wheel && \
     useradd -m -G wheel -s /bin/bash thebesttv && \
     echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # 安装必要的编译依赖
 # 尽量不要用 gcc，改用 clang
-RUN apt-get update && apt-get install -y \
+RUN apt-get update >/dev/null && apt-get install -y >/dev/null \
     git jq \
     llvm clang clang-tools \
     autoconf automake cmake
 
 #++++++++++++++++++
 # 安装编译依赖
-RUN apt-get update && apt-get -y install \
+RUN apt-get update >/dev/null && apt-get install -y >/dev/null \
     autoconf \
     automake \
     build-essential \
@@ -55,7 +55,7 @@ RUN apt-get update && apt-get -y install \
     zlib1g-dev
 
 # 删除 gcc
-RUN apt-get remove --purge -y gcc && apt-get autoremove -y
+RUN apt-get remove --purge -y gcc >/dev/null && apt-get autoremove -y >/dev/null
 
 USER thebesttv
 WORKDIR /home/thebesttv
