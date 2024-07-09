@@ -34,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup-matrix
     strategy:
+      fail-fast: false
       matrix:
         include: ${{fromJson(needs.setup-matrix.outputs.matrix-combinations)}}
 
