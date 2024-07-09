@@ -1,6 +1,17 @@
+# '#++++++++++++++++++' 开头的行是可以修改的
+# 最终要求：成功编译，并且 /home/thebesttv/项目名称/cc.json 是非空的
+
+#++++++++++++++++++
 # 优先用 22.04，不行的话换其他版本
-# TODO
 FROM ubuntu:22.04
+
+#++++++++++++++++++
+# 项目名称和版本
+#    项目会在 /home/thebesttv/${TBT_PACKAGE_NAME}
+#    然后 checkout 到对应版本
+ENV TBT_PACKAGE_NAME=FFmpeg
+ENV TBT_PACKAGE_VERSION=b6c43328eedfdc755e8ee378f8af2034ac67f62d
+ENV TBT_PACKAGE_URL=https://github.com/FFmpeg/FFmpeg.git
 
 # 添加用户 thebesttv
 RUN apt-get update && apt-get install -y sudo && \
@@ -15,27 +26,61 @@ RUN apt-get update && apt-get install -y \
     llvm clang clang-tools \
     autoconf automake cmake
 
-# 安装其他依赖
-# TODO
-RUN apt-get update && apt-get install -y \
-    vim
+#++++++++++++++++++
+# 安装编译依赖
+RUN apt-get update && apt-get -y install \
+    autoconf \
+    automake \
+    build-essential \
+    cmake \
+    git-core \
+    libass-dev \
+    libfreetype6-dev \
+    libgnutls28-dev \
+    libmp3lame-dev \
+    libsdl2-dev \
+    libtool \
+    libva-dev \
+    libvdpau-dev \
+    libvorbis-dev \
+    libxcb1-dev \
+    libxcb-shm0-dev \
+    libxcb-xfixes0-dev \
+    meson \
+    ninja-build \
+    pkg-config \
+    texinfo \
+    wget \
+    yasm \
+    zlib1g-dev
+
+# 删除 gcc
+RUN apt-get remove --purge -y gcc && apt-get autoremove -y
 
 USER thebesttv
-# 在 /home/thebesttv/xxx 下编译
 WORKDIR /home/thebesttv
 
-# bash 中改成 export PATH=...
+#++++++++++++++++++
+# 修改 PATH (bash 中改成 export PATH=...)
 ENV PATH="/usr/lib/llvm-14/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 # 确保没有 gcc
-RUN command -v gcc &> /dev/null && exit 1 || exit 0
+RUN ! which gcc
 
-# TODO
-RUN git clone https://github.com/FFmpeg/FFmpeg.git && \
-    cd FFmpeg && \
-    git checkout b6c43328eedfdc755e8ee378f8af2034ac67f62d && \
-    ./configure --cc=clang && \
-    intercept-build make -j2
+#++++++++++++++++++
+# 下载项目并checkout到固定版本
+# 如果不是 Git 项目的话，需要修改
+RUN git clone ${TBT_PACKAGE_URL} && \
+    cd ${TBT_PACKAGE_NAME} && \
+    git checkout ${TBT_PACKAGE_VERSION}
+
+# 修改当前目录
+WORKDIR /home/thebesttv/${TBT_PACKAGE_NAME}
+
+#++++++++++++++++++
+# 编译项目
+RUN ./configure --cc=clang && \
+    intercept-build make -j$(nproc)
 
 # 确保 compile_commands.json 存在且是一个长度至少为1的数组
 RUN if [ ! -f compile_commands.json ]; then \
