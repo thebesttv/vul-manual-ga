@@ -1,0 +1,48 @@
+# 优先用 22.04，不行的话换其他版本
+# TODO
+FROM ubuntu:22.04
+
+# 添加用户 thebesttv
+RUN apt-get update && apt-get install -y sudo && \
+    groupadd wheel && \
+    useradd -m -G wheel -s /bin/bash thebesttv && \
+    echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
+
+# 安装必要的编译依赖
+# 尽量不要用 gcc，改用 clang
+RUN apt-get update && apt-get install -y \
+    git jq \
+    llvm clang clang-tools \
+    autoconf automake cmake
+
+# 安装其他依赖
+# TODO
+RUN apt-get update && apt-get install -y \
+    vim
+
+USER thebesttv
+# 在 /home/thebesttv/xxx 下编译
+WORKDIR /home/thebesttv
+
+# bash 中改成 export PATH=...
+ENV PATH="/usr/lib/llvm-14/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+# 确保没有 gcc
+RUN command -v gcc &> /dev/null && exit 1 || exit 0
+
+# TODO
+RUN git clone https://github.com/FFmpeg/FFmpeg.git && \
+    cd FFmpeg && \
+    git checkout b6c43328eedfdc755e8ee378f8af2034ac67f62d && \
+    ./configure --cc=clang && \
+    intercept-build make -j2
+
+# 确保 compile_commands.json 存在且是一个长度至少为1的数组
+RUN if [ ! -f compile_commands.json ]; then \
+        echo "compile_commands.json 不存在"; \
+        exit 1; \
+    fi && \
+    if ! jq 'type == "array" and length > 0' compile_commands.json > /dev/null; then \
+        echo "compile_commands.json 不是非空数组"; \
+        exit 1; \
+    fi
