@@ -15,7 +15,7 @@ jobs:
         run: |
           DOCKER_DIRS=$(find . -type f -name dockerfile -exec dirname {} + | sed 's|^\./||' | sort -u)
           echo Dirs to process: ${DOCKER_DIRS}
-          echo "docker-dirs=${DOCKER_DIRS}" >> $GITHUB_OUTPUT
+          echo docker-dirs=${DOCKER_DIRS} >> $GITHUB_OUTPUT
 
       - name: Setup matrix combinations
         id: setup-matrix-combinations
