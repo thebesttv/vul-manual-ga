@@ -14,7 +14,7 @@ jobs:
         id: find-dockerfiles
         run: |
           DOCKER_DIRS=$(find . -type f -name dockerfile -exec dirname {} + | sed 's|^\./||' | sort -u)
-          echo "Dirs: ${DOCKER_DIRS}"
+          echo "Dirs to process: ${DOCKER_DIRS}"
           echo ::set-output name=docker-dirs::${DOCKER_DIRS}
 
       - name: Setup matrix combinations
