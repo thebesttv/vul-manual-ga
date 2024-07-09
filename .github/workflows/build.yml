@@ -15,7 +15,7 @@ jobs:
         run: |
           DOCKER_DIRS=$(find . -type f -name dockerfile -exec dirname {} + | sed 's|^\./||' | sort -u)
           echo "Dirs to process: ${DOCKER_DIRS}"
-          echo ::set-output name=docker-dirs::${DOCKER_DIRS}
+          echo "docker-dirs=${DOCKER_DIRS}" >> $GITHUB_OUTPUT
 
       - name: Setup matrix combinations
         id: setup-matrix-combinations
@@ -25,7 +25,7 @@ jobs:
               MATRIX_PARAMS_COMBINATIONS="${MATRIX_PARAMS_COMBINATIONS}{\"dir\": \"$dir\"},"
           done
           MATRIX_PARAMS_COMBINATIONS="${MATRIX_PARAMS_COMBINATIONS::-1}"  # Remove trailing comma
-          echo ::set-output name=matrix-combinations::[$MATRIX_PARAMS_COMBINATIONS]
+          echo "matrix-combinations=[$MATRIX_PARAMS_COMBINATIONS]" >> $GITHUB_OUTPUT
 
     outputs:
       matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
