@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Find Dockerfile directories
         id: find-dockerfiles
         run: |
