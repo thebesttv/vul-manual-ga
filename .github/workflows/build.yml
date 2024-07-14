@@ -42,7 +42,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set image name
+        id: image-name
+        run: |
+          export dir=${{ matrix.dir }}
+          echo "dir=${dir}"
+          echo "image=thebesttv/vul-manual:${dir//\//_}" | tee >> "$GITHUB_OUTPUT"
+
       - name: Build Docker image
         run: |
           cd ${{ matrix.dir }}
-          docker build -t myimage-${{ matrix.dir }} .
+          docker build -t ${{ steps.image-name.outputs.image }} .
