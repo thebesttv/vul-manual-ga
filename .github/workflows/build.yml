@@ -46,8 +46,10 @@ jobs:
         id: image-name
         run: |
           export dir=${{ matrix.dir }}
-          echo "dir=${dir}"
-          echo "image=thebesttv/vul-manual:${dir//\//_}" | tee >> "$GITHUB_OUTPUT"
+          export image="thebesttv/vul-manual:${dir//\//_}"
+          echo "Dir:   $dir"
+          echo "Image: $image"
+          echo "image=$image" >> "$GITHUB_OUTPUT"
 
       - name: Build Docker image
         run: |
