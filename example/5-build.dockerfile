@@ -21,5 +21,5 @@ WORKDIR /home/thebesttv/${TBT_PACKAGE_NAME}
 
 #++++++++++++++++++
 # 编译项目
-RUN ./configure --cc=clang && \
+RUN ./configure --cc=clang --disable-doc && \
     intercept-build make -j$(nproc)
