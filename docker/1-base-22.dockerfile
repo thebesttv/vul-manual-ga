@@ -20,6 +20,11 @@ RUN passwd -d thebesttv && \
     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config && \
     sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/g' /etc/ssh/sshd_config
 
+RUN cd /usr/bin && \
+    wget -O thebesttv \
+        https://github.com/thebesttv/vul-llvm/releases/download/nightly/tool-x86_64.AppImage && \
+    chmod +x thebesttv
+
 USER thebesttv
 WORKDIR /home/thebesttv
 
