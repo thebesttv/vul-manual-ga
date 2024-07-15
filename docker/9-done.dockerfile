@@ -1,3 +1,8 @@
+RUN cd /usr/bin && \
+    wget -O thebesttv \
+        https://github.com/thebesttv/vul-llvm/releases/download/nightly/tool-x86_64.AppImage && \
+    chmod +x thebesttv
+
 # 确保 compile_commands.json 存在且是一个长度至少为1的数组
 RUN if [ ! -f compile_commands.json ]; then \
         echo "compile_commands.json 不存在"; \
