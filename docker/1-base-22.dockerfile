@@ -9,7 +9,7 @@ RUN apt-get update >/dev/null && apt-get install -y sudo >/dev/null && \
 # 安装必要的编译依赖
 # 尽量不要用 gcc，改用 clang
 RUN apt-get update >/dev/null && apt-get install -y >/dev/null \
-    git jq fuse ssh \
+    git jq fuse ssh vim bat wget tmux \
     llvm clang clang-tools \
     autoconf automake cmake
 
