@@ -13,7 +13,7 @@ jobs:
       - name: Find Dockerfile directories
         id: find-dockerfiles
         run: |
-          DOCKER_DIRS=$(find . -type f -name dockerfile -exec dirname {} + | sed 's|^\./||' | sort -u)
+          DOCKER_DIRS=$(find . -type f -name '*.m4' -exec dirname {} + | sed 's|^\./||' | sort -u)
           echo Dirs to process: ${DOCKER_DIRS}
           echo docker-dirs=${DOCKER_DIRS} >> $GITHUB_OUTPUT
 
@@ -45,11 +45,23 @@ jobs:
       - name: Set image name
         id: image-name
         run: |
-          export dir=${{ matrix.dir }}
-          export image="thebesttv/vul-manual:${dir//\//_}"
-          echo "Dir:   $dir"
+          cd ${{ matrix.dir }}
+          echo Current directory: $(pwd)
+
+          ls *.m4
+          file=$(ls *.m4 | head)
+          image=$(basename $file .m4)
+          echo "File:  $file"
           echo "Image: $image"
+
+          echo "file=$file" >> "$GITHUB_OUTPUT"
           echo "image=$image" >> "$GITHUB_OUTPUT"
+
+      - name: Generate Dockerfile
+        run: |
+          cd ${{ matrix.dir }}
+          m4 ${{ steps.image-name.outputs.file }} > Dockerfile
+          cat Dockerfile
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
