@@ -1,0 +1,67 @@
+#+title: 样例
+#+date: <2024-07-15 Mon 11:48>
+#+author: thebesttv
+
+对于每个缺陷，需要有：
+- 对应的 Docker Image 的构建方法
+  - =*.dockerfile=
+  - =*.m4=
+- 路径生成工具的输入输出
+  - =input.json=
+  - =output.json=
+
+** Docker Image 构建
+
+Dockerfile 现在被分成了很多块，使用 =*.m4= 文件把每一步合并起来。
+这里文件名是 Docker Image 的 tag。
+
+例如，这里的 =example.m4= 把 =/docker= 目录下和当前目录下的共 5 个文件 include 起来。
+最终的 image 名称是 =thebesttv/vul-manual:example= ，GA 会自动上传到 Docker Hub。
+
+如果要看最终的 Dockerfile 和测试构建：
+#+begin_src bash
+  m4 example.m4 >Dockerfile
+  docker build .
+#+end_src
+*但注意不要把生成的 =Dockerfile= 提交到 repo 中。*
+
+** 路径生成工具的输入输出
+
+对于每个缺陷，需要把 =input.json= 和 =output.json= 都提交到 repo 中。
+这两个文件不一定要和 docker image 的构建文件放到同一个目录，可以放到 *单独的目录中* 。
+
+*** =input.json=
+
+格式基本和之前类似：
+- [[https://github.com/thebesttv/vul-llvm/blob/tbt-17/graph-generation/npe/input.json][NPE样例]]
+- [[https://github.com/thebesttv/vul-llvm/blob/tbt-17/graph-generation/resource-leak/input.json][resource-leak样例]]
+
+此外，需要加入 ="docker"= 指定 Image 名称，具体见当前目录下的 =input.json= 。
+
+*注意，需要加入中间路径 stmt，而不是只有 source 和 sink。*
+
+*** =output.json=
+
+生成 =output.json= 的参数：
+#+begin_src bash
+  thebesttv --no-npe-good-source --no-nodes input.json
+#+end_src
+
+*** 直接在 Docker Image 中生成路径
+
+路径生成工具现在有 [[https://github.com/thebesttv/vul-llvm/releases/download/nightly/tool-x86_64.AppImage][AppImage]] 可以直接使用。
+注意在 Ubuntu 使用的时候，需要安装 =fuse= 包。
+
+Docker Image 中已经包含了路径生成工具：
+#+begin_src bash
+  docker run -it \
+      --device /dev/fuse --cap-add SYS_ADMIN --security-opt apparmor:unconfined \
+      -v $PWD:/data \
+      -p 12345:22 \
+      thebesttv/vul-manual:example
+#+end_src
+- =-v= 把当前目录 mount 到容器中的 =/data= ，便于导出输入输出
+- =-p= 把容器的 22 口 map 到 host 的 12345 口，可以 SSH
+  #+begin_src bash
+    ssh -p 12345 thebesttv@localhost
+  #+end_src
