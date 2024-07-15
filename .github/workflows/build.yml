@@ -50,7 +50,7 @@ jobs:
 
           ls *.m4
           file=$(ls *.m4 | head)
-          image=$(basename $file .m4)
+          image="thebesttv/vul-manual:$(basename $file .m4)"
           echo "File:  $file"
           echo "Image: $image"
 
