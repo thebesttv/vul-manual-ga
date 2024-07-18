@@ -1,0 +1,169 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:5a2645",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 173,
+                    "beginColumn": 5,
+                    "endLine": 173,
+                    "endColumn": 57,
+                    "content": "formats               = av_mallocz(sizeof(*formats))",
+                    "variable": {
+                        "beginLine": 173,
+                        "beginColumn": 5,
+                        "endLine": 173,
+                        "endColumn": 12,
+                        "content": "formats"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 174,
+                    "beginColumn": 9,
+                    "endLine": 174,
+                    "endColumn": 14,
+                    "content": "count",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 175,
+                    "beginColumn": 29,
+                    "endLine": 175,
+                    "endColumn": 73,
+                    "content": "av_malloc(sizeof(*formats->formats) * count)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 175,
+                    "beginColumn": 9,
+                    "endLine": 175,
+                    "endColumn": 73,
+                    "content": "formats->formats  = av_malloc(sizeof(*formats->formats) * count)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 173,
+                    "beginColumn": 5,
+                    "endLine": 173,
+                    "endColumn": 57,
+                    "content": "formats               = av_mallocz(sizeof(*formats))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 174,
+                    "beginColumn": 9,
+                    "endLine": 174,
+                    "endColumn": 14,
+                    "content": "count",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 176,
+                    "beginColumn": 5,
+                    "endLine": 176,
+                    "endColumn": 32,
+                    "content": "formats->nb_formats = count",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 177,
+                    "beginColumn": 5,
+                    "endLine": 177,
+                    "endColumn": 70,
+                    "content": "memcpy(formats->formats, fmts, sizeof(*formats->formats) * count)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 179,
+                    "beginColumn": 5,
+                    "endLine": 179,
+                    "endColumn": 19,
+                    "content": "return formats",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 165,
+                    "beginColumn": 1,
+                    "endLine": 180,
+                    "endColumn": 2,
+                    "content": "AVFilterFormats *ff_make_format_list(const int *fmts)\n{\n    AVFilterFormats *for ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 173,
+                    "beginColumn": 5,
+                    "endLine": 173,
+                    "endColumn": 57,
+                    "content": "formats               = av_mallocz(sizeof(*formats))",
+                    "variable": {
+                        "beginLine": 173,
+                        "beginColumn": 5,
+                        "endLine": 173,
+                        "endColumn": 12,
+                        "content": "formats"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 174,
+                    "beginColumn": 9,
+                    "endLine": 174,
+                    "endColumn": 14,
+                    "content": "count",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/formats.c",
+                    "beginLine": 176,
+                    "beginColumn": 5,
+                    "endLine": 176,
+                    "endColumn": 32,
+                    "content": "formats->nb_formats = count",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        }
+    ]
+}

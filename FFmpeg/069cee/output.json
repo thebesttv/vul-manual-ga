@@ -1,0 +1,139 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:069cee",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1673,
+                    "beginColumn": 13,
+                    "endLine": 1673,
+                    "endColumn": 36,
+                    "content": "to[i] = av_malloc(size)",
+                    "variable": {
+                        "beginLine": 1673,
+                        "beginColumn": 13,
+                        "endLine": 1673,
+                        "endColumn": 18,
+                        "content": "to[i]"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1675,
+                    "beginColumn": 13,
+                    "endLine": 1675,
+                    "endColumn": 20,
+                    "content": "from[i]",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1676,
+                    "beginColumn": 13,
+                    "endLine": 1676,
+                    "endColumn": 41,
+                    "content": "memcpy(to[i], from[i], size)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1673,
+                    "beginColumn": 13,
+                    "endLine": 1673,
+                    "endColumn": 36,
+                    "content": "to[i] = av_malloc(size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1675,
+                    "beginColumn": 13,
+                    "endLine": 1675,
+                    "endColumn": 20,
+                    "content": "from[i]",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1669,
+                    "beginColumn": 28,
+                    "endLine": 1669,
+                    "endColumn": 31,
+                    "content": "i++",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1669,
+                    "beginColumn": 17,
+                    "endLine": 1669,
+                    "endColumn": 26,
+                    "content": "i < count",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 1665,
+                    "beginColumn": 1,
+                    "endLine": 1678,
+                    "endColumn": 2,
+                    "content": "static void copy_parameter_set(void **to, void **from, int count, int size)\n{\n   ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 3266,
+                    "beginColumn": 13,
+                    "endLine": 3266,
+                    "endColumn": 90,
+                    "content": "c                    = h->thread_context[i] = av_mallocz(sizeof(H264Context))",
+                    "variable": {
+                        "beginLine": 3266,
+                        "beginColumn": 13,
+                        "endLine": 3266,
+                        "endColumn": 14,
+                        "content": "c"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/h264.c",
+                    "beginLine": 3267,
+                    "beginColumn": 13,
+                    "endLine": 3267,
+                    "endColumn": 44,
+                    "content": "c->avctx             = h->avctx",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        }
+    ]
+}

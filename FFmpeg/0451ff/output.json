@@ -1,0 +1,41 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:0451ff",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 181,
+                    "beginColumn": 5,
+                    "endLine": 181,
+                    "endColumn": 43,
+                    "content": "ptr = *buf = av_realloc(NULL, buf_len)",
+                    "variable": {
+                        "beginLine": 181,
+                        "beginColumn": 5,
+                        "endLine": 181,
+                        "endColumn": 8,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 182,
+                    "beginColumn": 5,
+                    "endLine": 182,
+                    "endColumn": 32,
+                    "content": "memset(*buf, '\\0', buf_len)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:2efdcc",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/bitstream_filter.c",
+                    "beginLine": 48,
+                    "beginColumn": 13,
+                    "endLine": 49,
+                    "endColumn": 62,
+                    "content": "AVBitStreamFilterContext *bsfc =\n                av_mallocz(sizeof(AVBitStreamFi ...",
+                    "variable": {
+                        "beginLine": 48,
+                        "beginColumn": 39,
+                        "endLine": 48,
+                        "endColumn": 43,
+                        "content": "bsfc"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/bitstream_filter.c",
+                    "beginLine": 50,
+                    "beginColumn": 13,
+                    "endLine": 50,
+                    "endColumn": 34,
+                    "content": "bsfc->filter    = bsf",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/imx_dump_header_bsf.c",
+                    "beginLine": 45,
+                    "beginColumn": 5,
+                    "endLine": 45,
+                    "endColumn": 71,
+                    "content": "*poutbuf = av_malloc(buf_size + 20 + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "variable": {
+                        "beginLine": 45,
+                        "beginColumn": 5,
+                        "endLine": 45,
+                        "endColumn": 13,
+                        "content": "*poutbuf"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/imx_dump_header_bsf.c",
+                    "beginLine": 46,
+                    "beginColumn": 5,
+                    "endLine": 46,
+                    "endColumn": 24,
+                    "content": "poutbufp = *poutbuf",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 3,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/mjpega_dump_header_bsf.c",
+                    "beginLine": 47,
+                    "beginColumn": 5,
+                    "endLine": 47,
+                    "endColumn": 71,
+                    "content": "*poutbuf = av_malloc(buf_size + 44 + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "variable": {
+                        "beginLine": 47,
+                        "beginColumn": 5,
+                        "endLine": 47,
+                        "endColumn": 13,
+                        "content": "*poutbuf"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/mjpega_dump_header_bsf.c",
+                    "beginLine": 48,
+                    "beginColumn": 5,
+                    "endLine": 48,
+                    "endColumn": 24,
+                    "content": "poutbufp = *poutbuf",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 4,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/movsub_bsf.c",
+                    "beginLine": 31,
+                    "beginColumn": 5,
+                    "endLine": 31,
+                    "endColumn": 71,
+                    "content": "*poutbuf = av_malloc(*poutbuf_size + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "variable": {
+                        "beginLine": 31,
+                        "beginColumn": 5,
+                        "endLine": 31,
+                        "endColumn": 13,
+                        "content": "*poutbuf"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/movsub_bsf.c",
+                    "beginLine": 32,
+                    "beginColumn": 5,
+                    "endLine": 32,
+                    "endColumn": 32,
+                    "content": "AV_WB16(*poutbuf, buf_size)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 5,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/noise_bsf.c",
+                    "beginLine": 35,
+                    "beginColumn": 5,
+                    "endLine": 35,
+                    "endColumn": 65,
+                    "content": "*poutbuf= av_malloc(buf_size + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "variable": {
+                        "beginLine": 35,
+                        "beginColumn": 5,
+                        "endLine": 35,
+                        "endColumn": 13,
+                        "content": "*poutbuf"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/noise_bsf.c",
+                    "beginLine": 37,
+                    "beginColumn": 5,
+                    "endLine": 37,
+                    "endColumn": 67,
+                    "content": "memcpy(*poutbuf, buf, buf_size + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 6,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/parser.c",
+                    "beginLine": 195,
+                    "beginColumn": 13,
+                    "endLine": 195,
+                    "endColumn": 75,
+                    "content": "*poutbuf      = av_malloc(size + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "variable": {
+                        "beginLine": 195,
+                        "beginColumn": 13,
+                        "endLine": 195,
+                        "endColumn": 21,
+                        "content": "*poutbuf"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/parser.c",
+                    "beginLine": 197,
+                    "beginColumn": 13,
+                    "endLine": 197,
+                    "endColumn": 70,
+                    "content": "memcpy(*poutbuf, avctx->extradata, avctx->extradata_size)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}
