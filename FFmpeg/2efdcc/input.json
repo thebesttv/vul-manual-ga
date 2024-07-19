@@ -4,7 +4,7 @@
     "docker": "thebesttv/FFmpeg:2efdcc",
     "results": [
         {
-            "type": "ml",
+            "type": "resourceLeak",
             "locations": [
                 {
                     "type": "source",

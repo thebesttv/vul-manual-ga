@@ -6,7 +6,7 @@
 #    项目会在 /home/thebesttv/${TBT_PACKAGE_NAME}
 #    然后 checkout 到对应版本
 ENV TBT_PACKAGE_NAME=FFmpeg
-ENV TBT_PACKAGE_VERSION=014b6b
+ENV TBT_PACKAGE_VERSION=014b6b416fec89777cb9cff61bcf7896eaf7cf39
 ENV TBT_PACKAGE_URL=https://github.com/FFmpeg/FFmpeg.git
 
 #++++++++++++++++++

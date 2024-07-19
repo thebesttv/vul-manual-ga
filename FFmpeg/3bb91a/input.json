@@ -8,15 +8,9 @@
             "locations": [
                 {
                     "type": "source",
-                    "file": "/home/thebesttv/FFmpeg/libavcodec/hevc.c",
-                    "line": 2767,
-                    "column": 5
-                },
-                {
-                    "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
-                    "line": 1509,
-                    "column": 5
+                    "line": 1510,
+                    "column": 9
                 },
                 {
                     "type": "sink",

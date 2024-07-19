@@ -1,6 +1,6 @@
 docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
-m4 *.m4 > Dockerfile.m4
+m4 *.m4 > Dockerfile
 docker build . -t thebesttv/ffmpeg:*
 docker run -it \
     --device /dev/fuse --cap-add SYS_ADMIN --security-opt apparmor:unconfined \

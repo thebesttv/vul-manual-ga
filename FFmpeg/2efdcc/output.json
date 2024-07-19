@@ -5,7 +5,7 @@
     "source": "/data/input.json",
     "results": [
         {
-            "type": "ml",
+            "type": "resourceLeak",
             "sourceIndex": 0,
             "locations": [
                 {
@@ -87,6 +87,15 @@
                     "endColumn": 13,
                     "content": "return 1",
                     "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1366,
+                    "beginColumn": 1,
+                    "endLine": 1448,
+                    "endColumn": 2,
+                    "content": "static int dvbsub_display_end_segment(AVCodecContext *avctx, const uint8_t *buf, ..."
                 }
             ]
         }

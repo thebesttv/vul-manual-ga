@@ -10,19 +10,68 @@
             "locations": [
                 {
                     "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 77,
+                    "beginColumn": 5,
+                    "endLine": 77,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "beginLine": 77,
+                        "beginColumn": 11,
+                        "endLine": 77,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "size > (max_alloc_size - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 84,
+                    "beginColumn": 16,
+                    "endLine": 84,
+                    "endColumn": 20,
+                    "content": "NULL",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 84,
+                    "beginColumn": 9,
+                    "endLine": 84,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 75,
+                    "beginColumn": 1,
+                    "endLine": 141,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/fixed_dsp.c",
                     "beginLine": 93,
                     "beginColumn": 5,
                     "endLine": 93,
                     "endColumn": 69,
                     "content": "AVFixedDSPContext * fdsp = av_malloc(sizeof(AVFixedDSPContext));",
-                    "variable": {
-                        "beginLine": 93,
-                        "beginColumn": 25,
-                        "endLine": 93,
-                        "endColumn": 29,
-                        "content": "fdsp"
-                    },
                     "stmtKind": "DeclStmt"
                 },
                 {

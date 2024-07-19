@@ -10,13 +10,39 @@
             "locations": [
                 {
                     "type": "stmt",
-                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsespeex.c",
-                    "beginLine": 80,
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2693,
                     "beginColumn": 9,
-                    "endLine": 80,
-                    "endColumn": 49,
-                    "content": "ff_alloc_extradata(st->codec, os->psize)",
-                    "stmtKind": "CallExpr"
+                    "endLine": 2693,
+                    "endColumn": 16,
+                    "content": "ret = 0",
+                    "variable": {
+                        "beginLine": 2693,
+                        "beginColumn": 9,
+                        "endLine": 2693,
+                        "endColumn": 12,
+                        "content": "ret"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2698,
+                    "beginColumn": 5,
+                    "endLine": 2698,
+                    "endColumn": 15,
+                    "content": "return ret",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2681,
+                    "beginColumn": 1,
+                    "endLine": 2699,
+                    "endColumn": 2,
+                    "content": "int ff_alloc_extradata(AVCodecContext *avctx, int size)\n{\n    int ret;\n\n    if ( ..."
                 },
                 {
                     "type": "stmt",
