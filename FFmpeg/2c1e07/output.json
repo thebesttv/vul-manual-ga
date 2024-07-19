@@ -11,18 +11,48 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
-                    "beginLine": 2693,
-                    "beginColumn": 9,
-                    "endLine": 2693,
-                    "endColumn": 16,
-                    "content": "ret = 0",
+                    "beginLine": 2689,
+                    "beginColumn": 5,
+                    "endLine": 2689,
+                    "endColumn": 70,
+                    "content": "avctx->extradata = av_malloc(size + FF_INPUT_BUFFER_PADDING_SIZE)",
                     "variable": {
-                        "beginLine": 2693,
-                        "beginColumn": 9,
-                        "endLine": 2693,
-                        "endColumn": 12,
-                        "content": "ret"
+                        "beginLine": 2689,
+                        "beginColumn": 5,
+                        "endLine": 2689,
+                        "endColumn": 21,
+                        "content": "avctx->extradata"
                     },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2690,
+                    "beginColumn": 9,
+                    "endLine": 2690,
+                    "endColumn": 25,
+                    "content": "avctx->extradata",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2695,
+                    "beginColumn": 9,
+                    "endLine": 2695,
+                    "endColumn": 34,
+                    "content": "avctx->extradata_size = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2696,
+                    "beginColumn": 9,
+                    "endLine": 2696,
+                    "endColumn": 30,
+                    "content": "ret = AVERROR(ENOMEM)",
                     "stmtKind": "BinaryOperator"
                 },
                 {

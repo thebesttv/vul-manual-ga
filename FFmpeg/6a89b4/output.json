@@ -38,21 +38,21 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 16,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 9,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
@@ -182,21 +182,21 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 16,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 9,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
@@ -362,21 +362,21 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 16,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 9,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
@@ -467,21 +467,21 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 16,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 9,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
@@ -608,21 +608,21 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 16,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 9,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
@@ -713,21 +713,21 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 16,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 73,
-                    "beginColumn": 9,
-                    "endLine": 73,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {

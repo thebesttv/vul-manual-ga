@@ -38,21 +38,31 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 84,
-                    "beginColumn": 16,
-                    "endLine": 84,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 94,
+                    "beginColumn": 9,
+                    "endLine": 94,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 84,
-                    "beginColumn": 9,
-                    "endLine": 84,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 132,
+                    "beginColumn": 8,
+                    "endLine": 132,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 140,
+                    "beginColumn": 5,
+                    "endLine": 140,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
@@ -133,21 +143,31 @@
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 84,
-                    "beginColumn": 16,
-                    "endLine": 84,
-                    "endColumn": 20,
-                    "content": "NULL",
-                    "stmtKind": "CStyleCastExpr"
+                    "beginLine": 94,
+                    "beginColumn": 9,
+                    "endLine": 94,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
                 },
                 {
                     "type": "stmt",
                     "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
-                    "beginLine": 84,
-                    "beginColumn": 9,
-                    "endLine": 84,
-                    "endColumn": 20,
-                    "content": "return NULL",
+                    "beginLine": 132,
+                    "beginColumn": 8,
+                    "endLine": 132,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 140,
+                    "beginColumn": 5,
+                    "endLine": 140,
+                    "endColumn": 15,
+                    "content": "return ptr",
                     "stmtKind": "ReturnStmt"
                 },
                 {
