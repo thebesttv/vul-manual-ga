@@ -66,11 +66,11 @@ docker run -t \
 
         raise Exception(f"Output mismatch: {dir}")
 
-def update_paths(root):
+def update_paths(root, src):
     dst = '/testcase'
-    logging.info(f'Updating paths: {root} -> {dst}')
+    logging.info(f'Updating paths: {src} -> {dst}')
     cmd = f'''
-    sed -i 's|{root}|{dst}|g' $(find {root} -type f -name '*.json')
+    sed -i 's|{src}|{dst}|g' $(find {root} -type f -name '*.json')
 '''
     subprocess.run(cmd, shell=True, check=True)
 
@@ -90,7 +90,13 @@ def run(root, tool, verbose):
         assert image_name.startswith('thebesttv/vul-manual:')
         logging.info(f"Image name: {image_name}")
 
-    update_paths(root)
+    with open(os.path.join(root, 'output.json')) as f:
+        data = json.load(f)
+        assert 'source' in data
+        source = data['source']
+        logging.info(f"Source: {source}")
+
+    update_paths(root, source)
     run_case(root, image_name, tool, verbose)
 
 if __name__ == '__main__':
