@@ -94,6 +94,8 @@ def run(root, tool, verbose):
         data = json.load(f)
         assert 'source' in data
         source = data['source']
+        assert source.endswith('/input.json')
+        source = source[:-len('/input.json')] # remove suffix
         logging.info(f"Source: {source}")
 
     update_paths(root, source)
