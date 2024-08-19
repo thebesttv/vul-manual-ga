@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  setup-matrix:
+  setup-build-matrix:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,11 +32,11 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: setup-matrix
+    needs: setup-build-matrix
     strategy:
       fail-fast: false
       matrix:
-        include: ${{fromJson(needs.setup-matrix.outputs.matrix-combinations)}}
+        include: ${{fromJson(needs.setup-build-matrix.outputs.matrix-combinations)}}
     name: Build ${{ matrix.dir }}
     steps:
       - name: Checkout repository
