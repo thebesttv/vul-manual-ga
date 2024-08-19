@@ -78,3 +78,52 @@ jobs:
           context: ${{ matrix.dir }}
           push: true
           tags: ${{ steps.image-name.outputs.image }}
+
+  setup-test-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find Dockerfile directories
+        id: find-dockerfiles
+        run: |
+          DOCKER_DIRS=$(find . -type f -name '*.m4' -exec dirname {} + | sed 's|^\./||' | sort -u)
+          echo Dirs to process: ${DOCKER_DIRS}
+          echo docker-dirs=${DOCKER_DIRS} >> $GITHUB_OUTPUT
+
+      - name: Setup matrix combinations
+        id: setup-matrix-combinations
+        run: |
+          MATRIX_PARAMS_COMBINATIONS=''
+          for dir in ${{ steps.find-dockerfiles.outputs.docker-dirs }}; do
+              MATRIX_PARAMS_COMBINATIONS="${MATRIX_PARAMS_COMBINATIONS}{\"dir\": \"$dir\"},"
+          done
+          MATRIX_PARAMS_COMBINATIONS="${MATRIX_PARAMS_COMBINATIONS::-1}"  # Remove trailing comma
+          echo "matrix-combinations=[$MATRIX_PARAMS_COMBINATIONS]" >> $GITHUB_OUTPUT
+
+    outputs:
+      matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
+
+  test:
+    runs-on: ubuntu-latest
+    needs: setup-test-matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{fromJson(needs.setup-test-matrix.outputs.matrix-combinations)}}
+    name: Test ${{ matrix.dir }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get path-gen tool
+        run: |
+          wget https://github.com/thebesttv/vul-llvm/releases/download/nightly/tool-x86_64.AppImage
+          chmod +x tool-x86_64.AppImage
+
+      - name: Run test
+        id: image-name
+        run: |
+          cd ${{ matrix.dir }}
+          ${{ github.workspace }}/test.py ${{ github.workspace }}/tool-x86_64.AppImage
