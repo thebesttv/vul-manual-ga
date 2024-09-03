@@ -17,6 +17,7 @@
                     "endColumn": 22,
                     "content": "void *ptr = NULL;",
                     "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
                         "beginLine": 66,
                         "beginColumn": 11,
                         "endLine": 66,
@@ -701,6 +702,7 @@
                     "endColumn": 22,
                     "content": "void *ptr = NULL;",
                     "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
                         "beginLine": 66,
                         "beginColumn": 11,
                         "endLine": 66,
@@ -1465,6 +1467,7 @@
                     "endColumn": 22,
                     "content": "void *ptr = NULL;",
                     "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
                         "beginLine": 66,
                         "beginColumn": 11,
                         "endLine": 66,
@@ -2089,6 +2092,7 @@
                     "endColumn": 22,
                     "content": "void *ptr = NULL;",
                     "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
                         "beginLine": 66,
                         "beginColumn": 11,
                         "endLine": 66,
