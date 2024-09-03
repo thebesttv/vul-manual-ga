@@ -1,0 +1,103 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:2efdcc",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "resourceLeak-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1392,
+                    "beginColumn": 13,
+                    "endLine": 1392,
+                    "endColumn": 63,
+                    "content": "sub->rects[i] = av_mallocz(sizeof(*sub->rects[i]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1391,
+                    "beginColumn": 36,
+                    "endLine": 1391,
+                    "endColumn": 39,
+                    "content": "i++",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1391,
+                    "beginColumn": 18,
+                    "endLine": 1391,
+                    "endColumn": 34,
+                    "content": "i<sub->num_rects",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1394,
+                    "beginColumn": 5,
+                    "endLine": 1394,
+                    "endColumn": 10,
+                    "content": "i = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1396,
+                    "beginColumn": 10,
+                    "endLine": 1396,
+                    "endColumn": 37,
+                    "content": "display = ctx->display_list",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1396,
+                    "beginColumn": 39,
+                    "endLine": 1396,
+                    "endColumn": 46,
+                    "content": "display",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1441,
+                    "beginColumn": 5,
+                    "endLine": 1441,
+                    "endColumn": 23,
+                    "content": "sub->num_rects = i",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1447,
+                    "beginColumn": 5,
+                    "endLine": 1447,
+                    "endColumn": 13,
+                    "content": "return 1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/dvbsubdec.c",
+                    "beginLine": 1366,
+                    "beginColumn": 1,
+                    "endLine": 1448,
+                    "endColumn": 2,
+                    "content": "static int dvbsub_display_end_segment(AVCodecContext *avctx, const uint8_t *buf, ..."
+                }
+            ]
+        }
+    ]
+}

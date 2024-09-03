@@ -1,0 +1,680 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:b00e56",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 75,
+                    "beginColumn": 5,
+                    "endLine": 75,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                        "beginLine": 75,
+                        "beginColumn": 11,
+                        "endLine": 75,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 81,
+                    "beginColumn": 9,
+                    "endLine": 81,
+                    "endColumn": 37,
+                    "content": "size > (max_alloc_size - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 92,
+                    "beginColumn": 9,
+                    "endLine": 92,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 130,
+                    "beginColumn": 8,
+                    "endLine": 130,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 138,
+                    "beginColumn": 5,
+                    "endLine": 138,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 73,
+                    "beginColumn": 1,
+                    "endLine": 139,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 188,
+                    "beginColumn": 9,
+                    "endLine": 188,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[0] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 49,
+                    "content": "!p",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 52,
+                    "endLine": 189,
+                    "endColumn": 61,
+                    "content": "luma_size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 75,
+                    "content": "!p ? luma_size : chroma_size",
+                    "stmtKind": "ConditionalOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 37,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 9,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[1] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 192,
+                    "beginColumn": 9,
+                    "endLine": 192,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[0], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 75,
+                    "beginColumn": 5,
+                    "endLine": 75,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                        "beginLine": 75,
+                        "beginColumn": 11,
+                        "endLine": 75,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 81,
+                    "beginColumn": 9,
+                    "endLine": 81,
+                    "endColumn": 37,
+                    "content": "size > (max_alloc_size - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 92,
+                    "beginColumn": 9,
+                    "endLine": 92,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 130,
+                    "beginColumn": 8,
+                    "endLine": 130,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 138,
+                    "beginColumn": 5,
+                    "endLine": 138,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 73,
+                    "beginColumn": 1,
+                    "endLine": 139,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 188,
+                    "beginColumn": 9,
+                    "endLine": 188,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[0] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 49,
+                    "content": "!p",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 52,
+                    "endLine": 189,
+                    "endColumn": 61,
+                    "content": "luma_size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 75,
+                    "content": "!p ? luma_size : chroma_size",
+                    "stmtKind": "ConditionalOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 37,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 9,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[1] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 192,
+                    "beginColumn": 9,
+                    "endLine": 192,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[0], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 193,
+                    "beginColumn": 9,
+                    "endLine": 193,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[1], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 75,
+                    "beginColumn": 5,
+                    "endLine": 75,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                        "beginLine": 75,
+                        "beginColumn": 11,
+                        "endLine": 75,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 81,
+                    "beginColumn": 9,
+                    "endLine": 81,
+                    "endColumn": 37,
+                    "content": "size > (max_alloc_size - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 92,
+                    "beginColumn": 9,
+                    "endLine": 92,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 130,
+                    "beginColumn": 8,
+                    "endLine": 130,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 138,
+                    "beginColumn": 5,
+                    "endLine": 138,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 73,
+                    "beginColumn": 1,
+                    "endLine": 139,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 188,
+                    "beginColumn": 9,
+                    "endLine": 188,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[0] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 49,
+                    "content": "!p",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 52,
+                    "endLine": 189,
+                    "endColumn": 61,
+                    "content": "luma_size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 75,
+                    "content": "!p ? luma_size : chroma_size",
+                    "stmtKind": "ConditionalOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 37,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 9,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[1] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 192,
+                    "beginColumn": 9,
+                    "endLine": 192,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[0], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 193,
+                    "beginColumn": 9,
+                    "endLine": 193,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[1], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 196,
+                    "beginColumn": 9,
+                    "endLine": 196,
+                    "endColumn": 84,
+                    "content": "ctx->planes[p].pixels[0] = ctx->planes[p].buffers[0] + ctx->planes[p].pitch",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 197,
+                    "beginColumn": 9,
+                    "endLine": 197,
+                    "endColumn": 84,
+                    "content": "ctx->planes[p].pixels[1] = ctx->planes[p].buffers[1] + ctx->planes[p].pitch",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 198,
+                    "beginColumn": 9,
+                    "endLine": 198,
+                    "endColumn": 90,
+                    "content": "memset(ctx->planes[p].pixels[0], 0, ctx->planes[p].pitch * ctx->planes[p].height ...",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 3,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 75,
+                    "beginColumn": 5,
+                    "endLine": 75,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                        "beginLine": 75,
+                        "beginColumn": 11,
+                        "endLine": 75,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 81,
+                    "beginColumn": 9,
+                    "endLine": 81,
+                    "endColumn": 37,
+                    "content": "size > (max_alloc_size - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 92,
+                    "beginColumn": 9,
+                    "endLine": 92,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 130,
+                    "beginColumn": 8,
+                    "endLine": 130,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 138,
+                    "beginColumn": 5,
+                    "endLine": 138,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 73,
+                    "beginColumn": 1,
+                    "endLine": 139,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 188,
+                    "beginColumn": 9,
+                    "endLine": 188,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[0] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 49,
+                    "content": "!p",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 52,
+                    "endLine": 189,
+                    "endColumn": 61,
+                    "content": "luma_size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 47,
+                    "endLine": 189,
+                    "endColumn": 75,
+                    "content": "!p ? luma_size : chroma_size",
+                    "stmtKind": "ConditionalOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 37,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 189,
+                    "beginColumn": 9,
+                    "endLine": 189,
+                    "endColumn": 76,
+                    "content": "ctx->planes[p].buffers[1] = av_malloc(!p ? luma_size : chroma_size)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 192,
+                    "beginColumn": 9,
+                    "endLine": 192,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[0], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 193,
+                    "beginColumn": 9,
+                    "endLine": 193,
+                    "endColumn": 70,
+                    "content": "memset(ctx->planes[p].buffers[1], 0x40, ctx->planes[p].pitch)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 196,
+                    "beginColumn": 9,
+                    "endLine": 196,
+                    "endColumn": 84,
+                    "content": "ctx->planes[p].pixels[0] = ctx->planes[p].buffers[0] + ctx->planes[p].pitch",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 197,
+                    "beginColumn": 9,
+                    "endLine": 197,
+                    "endColumn": 84,
+                    "content": "ctx->planes[p].pixels[1] = ctx->planes[p].buffers[1] + ctx->planes[p].pitch",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 198,
+                    "beginColumn": 9,
+                    "endLine": 198,
+                    "endColumn": 90,
+                    "content": "memset(ctx->planes[p].pixels[0], 0, ctx->planes[p].pitch * ctx->planes[p].height ...",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/indeo3.c",
+                    "beginLine": 199,
+                    "beginColumn": 9,
+                    "endLine": 199,
+                    "endColumn": 90,
+                    "content": "memset(ctx->planes[p].pixels[1], 0, ctx->planes[p].pitch * ctx->planes[p].height ...",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}

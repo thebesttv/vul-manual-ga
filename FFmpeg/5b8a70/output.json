@@ -1,0 +1,946 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:5b8a70",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2340,
+                    "beginColumn": 9,
+                    "endLine": 2340,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2337,
+                    "beginColumn": 1,
+                    "endLine": 2342,
+                    "endColumn": 2,
+                    "content": "const AVPixFmtDescriptor *av_pix_fmt_desc_get(enum AVPixelFormat pix_fmt)\n{\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2507,
+                    "beginColumn": 5,
+                    "endLine": 2507,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *src_desc = av_pix_fmt_desc_get(src_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 42,
+                    "endLine": 2508,
+                    "endColumn": 74,
+                    "content": "av_pix_fmt_desc_get(dst_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 5,
+                    "endLine": 2508,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *dst_desc = av_pix_fmt_desc_get(dst_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 9,
+                    "endLine": 2509,
+                    "endColumn": 18,
+                    "content": "src_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 20,
+                    "endLine": 2509,
+                    "endColumn": 29,
+                    "content": "dst_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 9,
+                    "endLine": 2510,
+                    "endColumn": 22,
+                    "content": "src_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 24,
+                    "endLine": 2510,
+                    "endColumn": 37,
+                    "content": "src_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 39,
+                    "endLine": 2510,
+                    "endColumn": 52,
+                    "content": "dst_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 54,
+                    "endLine": 2510,
+                    "endColumn": 67,
+                    "content": "dst_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 9,
+                    "endLine": 2511,
+                    "endColumn": 12,
+                    "content": "ret",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 14,
+                    "endLine": 2511,
+                    "endColumn": 18,
+                    "content": "loss",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 20,
+                    "endLine": 2511,
+                    "endColumn": 21,
+                    "content": "i",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 23,
+                    "endLine": 2511,
+                    "endColumn": 36,
+                    "content": "nb_components",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2512,
+                    "beginColumn": 5,
+                    "endLine": 2512,
+                    "endColumn": 29,
+                    "content": "int score = INT_MAX - 1;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2514,
+                    "beginColumn": 9,
+                    "endLine": 2514,
+                    "endColumn": 37,
+                    "content": "dst_pix_fmt >= AV_PIX_FMT_NB",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2514,
+                    "beginColumn": 41,
+                    "endLine": 2514,
+                    "endColumn": 71,
+                    "content": "dst_pix_fmt <= AV_PIX_FMT_NONE",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2518,
+                    "beginColumn": 5,
+                    "endLine": 2518,
+                    "endColumn": 22,
+                    "content": "*lossp = loss = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2520,
+                    "beginColumn": 9,
+                    "endLine": 2520,
+                    "endColumn": 35,
+                    "content": "dst_pix_fmt == src_pix_fmt",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2523,
+                    "beginColumn": 16,
+                    "endLine": 2523,
+                    "endColumn": 78,
+                    "content": "get_pix_fmt_depth(&src_min_depth, &src_max_depth, src_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2523,
+                    "beginColumn": 9,
+                    "endLine": 2523,
+                    "endColumn": 83,
+                    "content": "(ret = get_pix_fmt_depth(&src_min_depth, &src_max_depth, src_pix_fmt)) < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2525,
+                    "beginColumn": 16,
+                    "endLine": 2525,
+                    "endColumn": 78,
+                    "content": "get_pix_fmt_depth(&dst_min_depth, &dst_max_depth, dst_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2525,
+                    "beginColumn": 9,
+                    "endLine": 2525,
+                    "endColumn": 83,
+                    "content": "(ret = get_pix_fmt_depth(&dst_min_depth, &dst_max_depth, dst_pix_fmt)) < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2528,
+                    "beginColumn": 17,
+                    "endLine": 2528,
+                    "endColumn": 41,
+                    "content": "get_color_type(src_desc)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2528,
+                    "beginColumn": 5,
+                    "endLine": 2528,
+                    "endColumn": 41,
+                    "content": "src_color = get_color_type(src_desc)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2340,
+                    "beginColumn": 9,
+                    "endLine": 2340,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2337,
+                    "beginColumn": 1,
+                    "endLine": 2342,
+                    "endColumn": 2,
+                    "content": "const AVPixFmtDescriptor *av_pix_fmt_desc_get(enum AVPixelFormat pix_fmt)\n{\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2507,
+                    "beginColumn": 5,
+                    "endLine": 2507,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *src_desc = av_pix_fmt_desc_get(src_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 42,
+                    "endLine": 2508,
+                    "endColumn": 74,
+                    "content": "av_pix_fmt_desc_get(dst_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 5,
+                    "endLine": 2508,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *dst_desc = av_pix_fmt_desc_get(dst_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 9,
+                    "endLine": 2509,
+                    "endColumn": 18,
+                    "content": "src_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 20,
+                    "endLine": 2509,
+                    "endColumn": 29,
+                    "content": "dst_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 9,
+                    "endLine": 2510,
+                    "endColumn": 22,
+                    "content": "src_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 24,
+                    "endLine": 2510,
+                    "endColumn": 37,
+                    "content": "src_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 39,
+                    "endLine": 2510,
+                    "endColumn": 52,
+                    "content": "dst_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 54,
+                    "endLine": 2510,
+                    "endColumn": 67,
+                    "content": "dst_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 9,
+                    "endLine": 2511,
+                    "endColumn": 12,
+                    "content": "ret",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 14,
+                    "endLine": 2511,
+                    "endColumn": 18,
+                    "content": "loss",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 20,
+                    "endLine": 2511,
+                    "endColumn": 21,
+                    "content": "i",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 23,
+                    "endLine": 2511,
+                    "endColumn": 36,
+                    "content": "nb_components",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2512,
+                    "beginColumn": 5,
+                    "endLine": 2512,
+                    "endColumn": 29,
+                    "content": "int score = INT_MAX - 1;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2514,
+                    "beginColumn": 9,
+                    "endLine": 2514,
+                    "endColumn": 37,
+                    "content": "dst_pix_fmt >= AV_PIX_FMT_NB",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2515,
+                    "beginColumn": 9,
+                    "endLine": 2515,
+                    "endColumn": 18,
+                    "content": "return ~0",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2503,
+                    "beginColumn": 1,
+                    "endLine": 2606,
+                    "endColumn": 2,
+                    "content": "static int get_pix_fmt_score(enum AVPixelFormat dst_pix_fmt,\n                    ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2340,
+                    "beginColumn": 9,
+                    "endLine": 2340,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2337,
+                    "beginColumn": 1,
+                    "endLine": 2342,
+                    "endColumn": 2,
+                    "content": "const AVPixFmtDescriptor *av_pix_fmt_desc_get(enum AVPixelFormat pix_fmt)\n{\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2507,
+                    "beginColumn": 5,
+                    "endLine": 2507,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *src_desc = av_pix_fmt_desc_get(src_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 42,
+                    "endLine": 2508,
+                    "endColumn": 74,
+                    "content": "av_pix_fmt_desc_get(dst_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 5,
+                    "endLine": 2508,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *dst_desc = av_pix_fmt_desc_get(dst_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 9,
+                    "endLine": 2509,
+                    "endColumn": 18,
+                    "content": "src_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 20,
+                    "endLine": 2509,
+                    "endColumn": 29,
+                    "content": "dst_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 9,
+                    "endLine": 2510,
+                    "endColumn": 22,
+                    "content": "src_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 24,
+                    "endLine": 2510,
+                    "endColumn": 37,
+                    "content": "src_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 39,
+                    "endLine": 2510,
+                    "endColumn": 52,
+                    "content": "dst_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 54,
+                    "endLine": 2510,
+                    "endColumn": 67,
+                    "content": "dst_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 9,
+                    "endLine": 2511,
+                    "endColumn": 12,
+                    "content": "ret",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 14,
+                    "endLine": 2511,
+                    "endColumn": 18,
+                    "content": "loss",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 20,
+                    "endLine": 2511,
+                    "endColumn": 21,
+                    "content": "i",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 23,
+                    "endLine": 2511,
+                    "endColumn": 36,
+                    "content": "nb_components",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2512,
+                    "beginColumn": 5,
+                    "endLine": 2512,
+                    "endColumn": 29,
+                    "content": "int score = INT_MAX - 1;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2514,
+                    "beginColumn": 9,
+                    "endLine": 2514,
+                    "endColumn": 37,
+                    "content": "dst_pix_fmt >= AV_PIX_FMT_NB",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2514,
+                    "beginColumn": 41,
+                    "endLine": 2514,
+                    "endColumn": 71,
+                    "content": "dst_pix_fmt <= AV_PIX_FMT_NONE",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2518,
+                    "beginColumn": 5,
+                    "endLine": 2518,
+                    "endColumn": 22,
+                    "content": "*lossp = loss = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2520,
+                    "beginColumn": 9,
+                    "endLine": 2520,
+                    "endColumn": 35,
+                    "content": "dst_pix_fmt == src_pix_fmt",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2523,
+                    "beginColumn": 16,
+                    "endLine": 2523,
+                    "endColumn": 78,
+                    "content": "get_pix_fmt_depth(&src_min_depth, &src_max_depth, src_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2523,
+                    "beginColumn": 9,
+                    "endLine": 2523,
+                    "endColumn": 83,
+                    "content": "(ret = get_pix_fmt_depth(&src_min_depth, &src_max_depth, src_pix_fmt)) < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2525,
+                    "beginColumn": 16,
+                    "endLine": 2525,
+                    "endColumn": 78,
+                    "content": "get_pix_fmt_depth(&dst_min_depth, &dst_max_depth, dst_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2525,
+                    "beginColumn": 9,
+                    "endLine": 2525,
+                    "endColumn": 83,
+                    "content": "(ret = get_pix_fmt_depth(&dst_min_depth, &dst_max_depth, dst_pix_fmt)) < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2528,
+                    "beginColumn": 17,
+                    "endLine": 2528,
+                    "endColumn": 41,
+                    "content": "get_color_type(src_desc)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2528,
+                    "beginColumn": 5,
+                    "endLine": 2528,
+                    "endColumn": 41,
+                    "content": "src_color = get_color_type(src_desc)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2529,
+                    "beginColumn": 17,
+                    "endLine": 2529,
+                    "endColumn": 41,
+                    "content": "get_color_type(dst_desc)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2529,
+                    "beginColumn": 5,
+                    "endLine": 2529,
+                    "endColumn": 41,
+                    "content": "dst_color = get_color_type(dst_desc)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2340,
+                    "beginColumn": 9,
+                    "endLine": 2340,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2337,
+                    "beginColumn": 1,
+                    "endLine": 2342,
+                    "endColumn": 2,
+                    "content": "const AVPixFmtDescriptor *av_pix_fmt_desc_get(enum AVPixelFormat pix_fmt)\n{\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2507,
+                    "beginColumn": 5,
+                    "endLine": 2507,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *src_desc = av_pix_fmt_desc_get(src_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 42,
+                    "endLine": 2508,
+                    "endColumn": 74,
+                    "content": "av_pix_fmt_desc_get(dst_pix_fmt)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2508,
+                    "beginColumn": 5,
+                    "endLine": 2508,
+                    "endColumn": 75,
+                    "content": "const AVPixFmtDescriptor *dst_desc = av_pix_fmt_desc_get(dst_pix_fmt);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 9,
+                    "endLine": 2509,
+                    "endColumn": 18,
+                    "content": "src_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2509,
+                    "beginColumn": 20,
+                    "endLine": 2509,
+                    "endColumn": 29,
+                    "content": "dst_color",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 9,
+                    "endLine": 2510,
+                    "endColumn": 22,
+                    "content": "src_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 24,
+                    "endLine": 2510,
+                    "endColumn": 37,
+                    "content": "src_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 39,
+                    "endLine": 2510,
+                    "endColumn": 52,
+                    "content": "dst_min_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2510,
+                    "beginColumn": 54,
+                    "endLine": 2510,
+                    "endColumn": 67,
+                    "content": "dst_max_depth",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 9,
+                    "endLine": 2511,
+                    "endColumn": 12,
+                    "content": "ret",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 14,
+                    "endLine": 2511,
+                    "endColumn": 18,
+                    "content": "loss",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 20,
+                    "endLine": 2511,
+                    "endColumn": 21,
+                    "content": "i",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2511,
+                    "beginColumn": 23,
+                    "endLine": 2511,
+                    "endColumn": 36,
+                    "content": "nb_components",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2512,
+                    "beginColumn": 5,
+                    "endLine": 2512,
+                    "endColumn": 29,
+                    "content": "int score = INT_MAX - 1;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2514,
+                    "beginColumn": 9,
+                    "endLine": 2514,
+                    "endColumn": 37,
+                    "content": "dst_pix_fmt >= AV_PIX_FMT_NB",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2515,
+                    "beginColumn": 9,
+                    "endLine": 2515,
+                    "endColumn": 18,
+                    "content": "return ~0",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2503,
+                    "beginColumn": 1,
+                    "endLine": 2606,
+                    "endColumn": 2,
+                    "content": "static int get_pix_fmt_score(enum AVPixelFormat dst_pix_fmt,\n                    ..."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:80b5a1",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/ffmpeg_opt.c",
+                    "beginLine": 2439,
+                    "beginColumn": 5,
+                    "endLine": 2439,
+                    "endColumn": 43,
+                    "content": "struct tm *today = localtime(&today2);",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/ffmpeg_opt.c",
+                        "beginLine": 2439,
+                        "beginColumn": 16,
+                        "endLine": 2439,
+                        "endColumn": 21,
+                        "content": "today"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/ffmpeg_opt.c",
+                    "beginLine": 2441,
+                    "beginColumn": 5,
+                    "endLine": 2442,
+                    "endColumn": 28,
+                    "content": "snprintf(filename, sizeof(filename), \"vstats_%02d%02d%02d.log\", today->tm_hour,  ...",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}

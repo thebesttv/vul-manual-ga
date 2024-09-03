@@ -1,0 +1,2704 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:6555ac",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "beginLine": 66,
+                        "beginColumn": 11,
+                        "endLine": 66,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 282,
+                    "beginColumn": 5,
+                    "endLine": 282,
+                    "endColumn": 48,
+                    "content": "runs = av_malloc(runsize * sizeof(runs[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 12,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 298,
+                    "beginColumn": 25,
+                    "endLine": 298,
+                    "endColumn": 41,
+                    "content": "compr == TIFF_G3",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 298,
+                    "beginColumn": 13,
+                    "endLine": 298,
+                    "endColumn": 58,
+                    "content": "int g3d1 = (compr == TIFF_G3) && !(opts & 1);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 299,
+                    "beginColumn": 16,
+                    "endLine": 299,
+                    "endColumn": 37,
+                    "content": "compr!=TIFF_CCITT_RLE",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 301,
+                    "beginColumn": 16,
+                    "endLine": 301,
+                    "endColumn": 37,
+                    "content": "compr==TIFF_CCITT_RLE",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 302,
+                    "beginColumn": 23,
+                    "endLine": 302,
+                    "endColumn": 84,
+                    "content": "decode_group3_1d_line(avctx, &gb, avctx->width, runs, runend)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 126,
+                    "beginColumn": 1,
+                    "endLine": 157,
+                    "endColumn": 2,
+                    "content": "static int decode_group3_1d_line(AVCodecContext *avctx, GetBitContext *gb,\n      ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 129,
+                    "beginColumn": 5,
+                    "endLine": 129,
+                    "endColumn": 18,
+                    "content": "int mode = 0;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 130,
+                    "beginColumn": 5,
+                    "endLine": 130,
+                    "endColumn": 24,
+                    "content": "unsigned int run=0;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 131,
+                    "beginColumn": 5,
+                    "endLine": 131,
+                    "endColumn": 20,
+                    "content": "unsigned int t;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 133,
+                    "beginColumn": 13,
+                    "endLine": 133,
+                    "endColumn": 54,
+                    "content": "get_vlc2(gb, ccitt_vlc[mode].table, 9, 2)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 133,
+                    "beginColumn": 9,
+                    "endLine": 133,
+                    "endColumn": 54,
+                    "content": "t = get_vlc2(gb, ccitt_vlc[mode].table, 9, 2)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 134,
+                    "beginColumn": 9,
+                    "endLine": 134,
+                    "endColumn": 17,
+                    "content": "run += t",
+                    "stmtKind": "CompoundAssignOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 135,
+                    "beginColumn": 12,
+                    "endLine": 135,
+                    "endColumn": 18,
+                    "content": "t < 64",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 136,
+                    "beginColumn": 13,
+                    "endLine": 136,
+                    "endColumn": 26,
+                    "content": "*runs++ = run",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 282,
+                    "beginColumn": 5,
+                    "endLine": 282,
+                    "endColumn": 48,
+                    "content": "runs = av_malloc(runsize * sizeof(runs[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 12,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 298,
+                    "beginColumn": 25,
+                    "endLine": 298,
+                    "endColumn": 41,
+                    "content": "compr == TIFF_G3",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 298,
+                    "beginColumn": 13,
+                    "endLine": 298,
+                    "endColumn": 58,
+                    "content": "int g3d1 = (compr == TIFF_G3) && !(opts & 1);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 299,
+                    "beginColumn": 16,
+                    "endLine": 299,
+                    "endColumn": 37,
+                    "content": "compr!=TIFF_CCITT_RLE",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 301,
+                    "beginColumn": 16,
+                    "endLine": 301,
+                    "endColumn": 37,
+                    "content": "compr==TIFF_CCITT_RLE",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 302,
+                    "beginColumn": 23,
+                    "endLine": 302,
+                    "endColumn": 84,
+                    "content": "decode_group3_1d_line(avctx, &gb, avctx->width, runs, runend)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 126,
+                    "beginColumn": 1,
+                    "endLine": 157,
+                    "endColumn": 2,
+                    "content": "static int decode_group3_1d_line(AVCodecContext *avctx, GetBitContext *gb,\n      ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 129,
+                    "beginColumn": 5,
+                    "endLine": 129,
+                    "endColumn": 18,
+                    "content": "int mode = 0;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 130,
+                    "beginColumn": 5,
+                    "endLine": 130,
+                    "endColumn": 24,
+                    "content": "unsigned int run=0;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 131,
+                    "beginColumn": 5,
+                    "endLine": 131,
+                    "endColumn": 20,
+                    "content": "unsigned int t;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 133,
+                    "beginColumn": 13,
+                    "endLine": 133,
+                    "endColumn": 54,
+                    "content": "get_vlc2(gb, ccitt_vlc[mode].table, 9, 2)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 133,
+                    "beginColumn": 9,
+                    "endLine": 133,
+                    "endColumn": 54,
+                    "content": "t = get_vlc2(gb, ccitt_vlc[mode].table, 9, 2)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 134,
+                    "beginColumn": 9,
+                    "endLine": 134,
+                    "endColumn": 17,
+                    "content": "run += t",
+                    "stmtKind": "CompoundAssignOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 135,
+                    "beginColumn": 12,
+                    "endLine": 135,
+                    "endColumn": 18,
+                    "content": "t < 64",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 150,
+                    "beginColumn": 18,
+                    "endLine": 150,
+                    "endColumn": 30,
+                    "content": "(int)t == -1",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 151,
+                    "beginColumn": 13,
+                    "endLine": 151,
+                    "endColumn": 60,
+                    "content": "av_log(avctx, AV_LOG_ERROR, \"Incorrect code\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 152,
+                    "beginColumn": 13,
+                    "endLine": 152,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 126,
+                    "beginColumn": 1,
+                    "endLine": 157,
+                    "endColumn": 2,
+                    "content": "static int decode_group3_1d_line(AVCodecContext *avctx, GetBitContext *gb,\n      ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "beginLine": 66,
+                        "beginColumn": 11,
+                        "endLine": 66,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 282,
+                    "beginColumn": 5,
+                    "endLine": 282,
+                    "endColumn": 48,
+                    "content": "runs = av_malloc(runsize * sizeof(runs[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 12,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 19,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 159,
+                    "beginColumn": 1,
+                    "endLine": 239,
+                    "endColumn": 2,
+                    "content": "static int decode_group3_2d_line(AVCodecContext *avctx, GetBitContext *gb,\n      ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 162,
+                    "beginColumn": 9,
+                    "endLine": 162,
+                    "endColumn": 17,
+                    "content": "mode = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 162,
+                    "beginColumn": 19,
+                    "endLine": 162,
+                    "endColumn": 32,
+                    "content": "saved_run = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 162,
+                    "beginColumn": 34,
+                    "endLine": 162,
+                    "endColumn": 35,
+                    "content": "t",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 163,
+                    "beginColumn": 5,
+                    "endLine": 163,
+                    "endColumn": 26,
+                    "content": "int run_off = *ref++;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 164,
+                    "beginColumn": 18,
+                    "endLine": 164,
+                    "endColumn": 24,
+                    "content": "offs=0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 164,
+                    "beginColumn": 26,
+                    "endLine": 164,
+                    "endColumn": 32,
+                    "content": "run= 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 166,
+                    "beginColumn": 5,
+                    "endLine": 166,
+                    "endColumn": 13,
+                    "content": "runend--",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 168,
+                    "beginColumn": 11,
+                    "endLine": 168,
+                    "endColumn": 23,
+                    "content": "offs < width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 169,
+                    "beginColumn": 21,
+                    "endLine": 169,
+                    "endColumn": 66,
+                    "content": "get_vlc2(gb, ccitt_group3_2d_vlc.table, 9, 1)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 169,
+                    "beginColumn": 9,
+                    "endLine": 169,
+                    "endColumn": 67,
+                    "content": "int cmode = get_vlc2(gb, ccitt_group3_2d_vlc.table, 9, 1);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 170,
+                    "beginColumn": 12,
+                    "endLine": 170,
+                    "endColumn": 23,
+                    "content": "cmode == -1",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 174,
+                    "beginColumn": 12,
+                    "endLine": 174,
+                    "endColumn": 18,
+                    "content": "!cmode",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 184,
+                    "beginColumn": 18,
+                    "endLine": 184,
+                    "endColumn": 28,
+                    "content": "cmode == 1",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 185,
+                    "beginColumn": 13,
+                    "endLine": 185,
+                    "endColumn": 19,
+                    "content": "int k;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 186,
+                    "beginColumn": 17,
+                    "endLine": 186,
+                    "endColumn": 22,
+                    "content": "k = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 186,
+                    "beginColumn": 24,
+                    "endLine": 186,
+                    "endColumn": 29,
+                    "content": "k < 2",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 187,
+                    "beginColumn": 17,
+                    "endLine": 187,
+                    "endColumn": 24,
+                    "content": "run = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 189,
+                    "beginColumn": 25,
+                    "endLine": 189,
+                    "endColumn": 66,
+                    "content": "get_vlc2(gb, ccitt_vlc[mode].table, 9, 2)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 189,
+                    "beginColumn": 21,
+                    "endLine": 189,
+                    "endColumn": 66,
+                    "content": "t = get_vlc2(gb, ccitt_vlc[mode].table, 9, 2)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 190,
+                    "beginColumn": 24,
+                    "endLine": 190,
+                    "endColumn": 31,
+                    "content": "t == -1",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 194,
+                    "beginColumn": 21,
+                    "endLine": 194,
+                    "endColumn": 29,
+                    "content": "run += t",
+                    "stmtKind": "CompoundAssignOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 195,
+                    "beginColumn": 24,
+                    "endLine": 195,
+                    "endColumn": 30,
+                    "content": "t < 64",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 198,
+                    "beginColumn": 17,
+                    "endLine": 198,
+                    "endColumn": 42,
+                    "content": "*runs++ = run + saved_run",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 282,
+                    "beginColumn": 5,
+                    "endLine": 282,
+                    "endColumn": 48,
+                    "content": "runs = av_malloc(runsize * sizeof(runs[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 12,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 19,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 159,
+                    "beginColumn": 1,
+                    "endLine": 239,
+                    "endColumn": 2,
+                    "content": "static int decode_group3_2d_line(AVCodecContext *avctx, GetBitContext *gb,\n      ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 162,
+                    "beginColumn": 9,
+                    "endLine": 162,
+                    "endColumn": 17,
+                    "content": "mode = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 162,
+                    "beginColumn": 19,
+                    "endLine": 162,
+                    "endColumn": 32,
+                    "content": "saved_run = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 162,
+                    "beginColumn": 34,
+                    "endLine": 162,
+                    "endColumn": 35,
+                    "content": "t",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 163,
+                    "beginColumn": 5,
+                    "endLine": 163,
+                    "endColumn": 26,
+                    "content": "int run_off = *ref++;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 164,
+                    "beginColumn": 18,
+                    "endLine": 164,
+                    "endColumn": 24,
+                    "content": "offs=0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 164,
+                    "beginColumn": 26,
+                    "endLine": 164,
+                    "endColumn": 32,
+                    "content": "run= 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 166,
+                    "beginColumn": 5,
+                    "endLine": 166,
+                    "endColumn": 13,
+                    "content": "runend--",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 168,
+                    "beginColumn": 11,
+                    "endLine": 168,
+                    "endColumn": 23,
+                    "content": "offs < width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 236,
+                    "beginColumn": 5,
+                    "endLine": 236,
+                    "endColumn": 24,
+                    "content": "*runs++ = saved_run",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 237,
+                    "beginColumn": 5,
+                    "endLine": 237,
+                    "endColumn": 16,
+                    "content": "*runs++ = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 238,
+                    "beginColumn": 5,
+                    "endLine": 238,
+                    "endColumn": 13,
+                    "content": "return 0",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 159,
+                    "beginColumn": 1,
+                    "endLine": 239,
+                    "endColumn": 2,
+                    "content": "static int decode_group3_2d_line(AVCodecContext *avctx, GetBitContext *gb,\n      ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "beginLine": 66,
+                        "beginColumn": 11,
+                        "endLine": 66,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 19,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 13,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "ret = decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 292,
+                    "beginColumn": 16,
+                    "endLine": 292,
+                    "endColumn": 23,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 308,
+                    "beginColumn": 12,
+                    "endLine": 308,
+                    "endColumn": 19,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 311,
+                    "beginColumn": 13,
+                    "endLine": 311,
+                    "endColumn": 54,
+                    "content": "put_line(dst, stride, avctx->width, runs)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 241,
+                    "beginColumn": 1,
+                    "endLine": 257,
+                    "endColumn": 2,
+                    "content": "static void put_line(uint8_t *dst, int size, int width, const int *runs)\n{\n    P ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 243,
+                    "beginColumn": 5,
+                    "endLine": 243,
+                    "endColumn": 22,
+                    "content": "PutBitContext pb;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 9,
+                    "endLine": 244,
+                    "endColumn": 12,
+                    "content": "run",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 14,
+                    "endLine": 244,
+                    "endColumn": 23,
+                    "content": "mode = ~0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 25,
+                    "endLine": 244,
+                    "endColumn": 41,
+                    "content": "pix_left = width",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 43,
+                    "endLine": 244,
+                    "endColumn": 54,
+                    "content": "run_idx = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 246,
+                    "beginColumn": 5,
+                    "endLine": 246,
+                    "endColumn": 36,
+                    "content": "init_put_bits(&pb, dst, size*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 247,
+                    "beginColumn": 11,
+                    "endLine": 247,
+                    "endColumn": 23,
+                    "content": "pix_left > 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 248,
+                    "beginColumn": 9,
+                    "endLine": 248,
+                    "endColumn": 30,
+                    "content": "run = runs[run_idx++]",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 19,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 13,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "ret = decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 292,
+                    "beginColumn": 16,
+                    "endLine": 292,
+                    "endColumn": 23,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 308,
+                    "beginColumn": 12,
+                    "endLine": 308,
+                    "endColumn": 19,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 311,
+                    "beginColumn": 13,
+                    "endLine": 311,
+                    "endColumn": 54,
+                    "content": "put_line(dst, stride, avctx->width, runs)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 241,
+                    "beginColumn": 1,
+                    "endLine": 257,
+                    "endColumn": 2,
+                    "content": "static void put_line(uint8_t *dst, int size, int width, const int *runs)\n{\n    P ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 243,
+                    "beginColumn": 5,
+                    "endLine": 243,
+                    "endColumn": 22,
+                    "content": "PutBitContext pb;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 9,
+                    "endLine": 244,
+                    "endColumn": 12,
+                    "content": "run",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 14,
+                    "endLine": 244,
+                    "endColumn": 23,
+                    "content": "mode = ~0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 25,
+                    "endLine": 244,
+                    "endColumn": 41,
+                    "content": "pix_left = width",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 43,
+                    "endLine": 244,
+                    "endColumn": 54,
+                    "content": "run_idx = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 246,
+                    "beginColumn": 5,
+                    "endLine": 246,
+                    "endColumn": 36,
+                    "content": "init_put_bits(&pb, dst, size*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 247,
+                    "beginColumn": 11,
+                    "endLine": 247,
+                    "endColumn": 23,
+                    "content": "pix_left > 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 256,
+                    "beginColumn": 5,
+                    "endLine": 256,
+                    "endColumn": 24,
+                    "content": "flush_put_bits(&pb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 241,
+                    "beginColumn": 1,
+                    "endLine": 257,
+                    "endColumn": 2,
+                    "content": "static void put_line(uint8_t *dst, int size, int width, const int *runs)\n{\n    P ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 3,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "beginLine": 66,
+                        "beginColumn": 11,
+                        "endLine": 66,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 19,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 13,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "ret = decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 292,
+                    "beginColumn": 16,
+                    "endLine": 292,
+                    "endColumn": 23,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 308,
+                    "beginColumn": 12,
+                    "endLine": 308,
+                    "endColumn": 19,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 311,
+                    "beginColumn": 13,
+                    "endLine": 311,
+                    "endColumn": 54,
+                    "content": "put_line(dst, stride, avctx->width, runs)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 241,
+                    "beginColumn": 1,
+                    "endLine": 257,
+                    "endColumn": 2,
+                    "content": "static void put_line(uint8_t *dst, int size, int width, const int *runs)\n{\n    P ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 243,
+                    "beginColumn": 5,
+                    "endLine": 243,
+                    "endColumn": 22,
+                    "content": "PutBitContext pb;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 9,
+                    "endLine": 244,
+                    "endColumn": 12,
+                    "content": "run",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 14,
+                    "endLine": 244,
+                    "endColumn": 23,
+                    "content": "mode = ~0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 25,
+                    "endLine": 244,
+                    "endColumn": 41,
+                    "content": "pix_left = width",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 43,
+                    "endLine": 244,
+                    "endColumn": 54,
+                    "content": "run_idx = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 246,
+                    "beginColumn": 5,
+                    "endLine": 246,
+                    "endColumn": 36,
+                    "content": "init_put_bits(&pb, dst, size*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 247,
+                    "beginColumn": 11,
+                    "endLine": 247,
+                    "endColumn": 23,
+                    "content": "pix_left > 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 248,
+                    "beginColumn": 9,
+                    "endLine": 248,
+                    "endColumn": 30,
+                    "content": "run = runs[run_idx++]",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 3,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 71,
+                    "beginColumn": 5,
+                    "endLine": 71,
+                    "endColumn": 17,
+                    "content": "assert(size)",
+                    "stmtKind": "CStyleCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 9,
+                    "endLine": 74,
+                    "endColumn": 28,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 74,
+                    "beginColumn": 32,
+                    "endLine": 74,
+                    "endColumn": 37,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 85,
+                    "beginColumn": 9,
+                    "endLine": 85,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 116,
+                    "beginColumn": 5,
+                    "endLine": 116,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 117,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 283,
+                    "beginColumn": 5,
+                    "endLine": 283,
+                    "endColumn": 47,
+                    "content": "ref  = av_malloc(runsize * sizeof(ref[0]))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 284,
+                    "beginColumn": 5,
+                    "endLine": 284,
+                    "endColumn": 26,
+                    "content": "ref[0] = avctx->width",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 285,
+                    "beginColumn": 5,
+                    "endLine": 285,
+                    "endColumn": 15,
+                    "content": "ref[1] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 286,
+                    "beginColumn": 5,
+                    "endLine": 286,
+                    "endColumn": 15,
+                    "content": "ref[2] = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 287,
+                    "beginColumn": 5,
+                    "endLine": 287,
+                    "endColumn": 39,
+                    "content": "init_get_bits(&gb, src, srcsize*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 9,
+                    "endLine": 288,
+                    "endColumn": 14,
+                    "content": "j = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 288,
+                    "beginColumn": 16,
+                    "endLine": 288,
+                    "endColumn": 26,
+                    "content": "j < height",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 289,
+                    "beginColumn": 9,
+                    "endLine": 289,
+                    "endColumn": 32,
+                    "content": "runend = runs + runsize",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 290,
+                    "beginColumn": 12,
+                    "endLine": 290,
+                    "endColumn": 28,
+                    "content": "compr == TIFF_G4",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 19,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 291,
+                    "beginColumn": 13,
+                    "endLine": 291,
+                    "endColumn": 85,
+                    "content": "ret = decode_group3_2d_line(avctx, &gb, avctx->width, runs, runend, ref)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 292,
+                    "beginColumn": 16,
+                    "endLine": 292,
+                    "endColumn": 23,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 308,
+                    "beginColumn": 12,
+                    "endLine": 308,
+                    "endColumn": 19,
+                    "content": "ret < 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 311,
+                    "beginColumn": 13,
+                    "endLine": 311,
+                    "endColumn": 54,
+                    "content": "put_line(dst, stride, avctx->width, runs)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 241,
+                    "beginColumn": 1,
+                    "endLine": 257,
+                    "endColumn": 2,
+                    "content": "static void put_line(uint8_t *dst, int size, int width, const int *runs)\n{\n    P ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 243,
+                    "beginColumn": 5,
+                    "endLine": 243,
+                    "endColumn": 22,
+                    "content": "PutBitContext pb;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 9,
+                    "endLine": 244,
+                    "endColumn": 12,
+                    "content": "run",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 14,
+                    "endLine": 244,
+                    "endColumn": 23,
+                    "content": "mode = ~0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 25,
+                    "endLine": 244,
+                    "endColumn": 41,
+                    "content": "pix_left = width",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 244,
+                    "beginColumn": 43,
+                    "endLine": 244,
+                    "endColumn": 54,
+                    "content": "run_idx = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 246,
+                    "beginColumn": 5,
+                    "endLine": 246,
+                    "endColumn": 36,
+                    "content": "init_put_bits(&pb, dst, size*8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 247,
+                    "beginColumn": 11,
+                    "endLine": 247,
+                    "endColumn": 23,
+                    "content": "pix_left > 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 256,
+                    "beginColumn": 5,
+                    "endLine": 256,
+                    "endColumn": 24,
+                    "content": "flush_put_bits(&pb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavcodec/faxcompr.c",
+                    "beginLine": 241,
+                    "beginColumn": 1,
+                    "endLine": 257,
+                    "endColumn": 2,
+                    "content": "static void put_line(uint8_t *dst, int size, int width, const int *runs)\n{\n    P ..."
+                }
+            ]
+        }
+    ]
+}

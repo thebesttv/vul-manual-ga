@@ -1,0 +1,73 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/FFmpeg:b90b6a",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/avio.c",
+                    "beginLine": 402,
+                    "beginColumn": 5,
+                    "endLine": 402,
+                    "endColumn": 30,
+                    "content": "return p ? p->name : NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/avio.c",
+                    "beginLine": 398,
+                    "beginColumn": 1,
+                    "endLine": 403,
+                    "endColumn": 2,
+                    "content": "const char *avio_find_protocol_name(const char *url)\n{\n    URLProtocol *p = url_ ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 1789,
+                    "beginColumn": 5,
+                    "endLine": 1789,
+                    "endColumn": 62,
+                    "content": "const char *proto = avio_find_protocol_name(s->filename);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 1791,
+                    "beginColumn": 11,
+                    "endLine": 1791,
+                    "endColumn": 32,
+                    "content": "strcmp(proto, \"file\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 1791,
+                    "beginColumn": 11,
+                    "endLine": 1791,
+                    "endColumn": 83,
+                    "content": "strcmp(proto, \"file\") && strcmp(proto, \"pipe\") && strcmp(proto, \"cache\")",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 1791,
+                    "beginColumn": 9,
+                    "endLine": 1791,
+                    "endColumn": 84,
+                    "content": "!(strcmp(proto, \"file\") && strcmp(proto, \"pipe\") && strcmp(proto, \"cache\"))",
+                    "stmtKind": "UnaryOperator"
+                }
+            ]
+        }
+    ]
+}
