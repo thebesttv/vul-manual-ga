@@ -1,7 +1,7 @@
 {
     "root": "/home/thebesttv/FFmpeg",
     "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
-    "docker": "thebesttv/FFmpeg:0451ff",
+    "docker": "thebesttv/vul-manual:0451ff",
     "results": [
         {
             "type": "resourceLeak",

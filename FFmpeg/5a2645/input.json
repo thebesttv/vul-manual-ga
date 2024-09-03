@@ -1,7 +1,7 @@
 {
     "root": "/home/thebesttv/FFmpeg",
     "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
-    "docker": "thebesttv/FFmpeg:5a2645",
+    "docker": "thebesttv/vul-manual:5a2645",
     "results": [
         {
             "type": "npe",
