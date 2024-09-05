@@ -1,0 +1,91 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/vul-manual:2c1e07",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2689,
+                    "beginColumn": 5,
+                    "endLine": 2689,
+                    "endColumn": 70,
+                    "content": "avctx->extradata = av_malloc(size + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                        "beginLine": 2689,
+                        "beginColumn": 5,
+                        "endLine": 2689,
+                        "endColumn": 21,
+                        "content": "avctx->extradata"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2690,
+                    "beginColumn": 9,
+                    "endLine": 2690,
+                    "endColumn": 25,
+                    "content": "avctx->extradata",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2695,
+                    "beginColumn": 9,
+                    "endLine": 2695,
+                    "endColumn": 34,
+                    "content": "avctx->extradata_size = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2696,
+                    "beginColumn": 9,
+                    "endLine": 2696,
+                    "endColumn": 30,
+                    "content": "ret = AVERROR(ENOMEM)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2698,
+                    "beginColumn": 5,
+                    "endLine": 2698,
+                    "endColumn": 15,
+                    "content": "return ret",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/utils.c",
+                    "beginLine": 2681,
+                    "beginColumn": 1,
+                    "endLine": 2699,
+                    "endColumn": 2,
+                    "content": "int ff_alloc_extradata(AVCodecContext *avctx, int size)\n{\n    int ret;\n\n    if ( ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsespeex.c",
+                    "beginLine": 81,
+                    "beginColumn": 9,
+                    "endLine": 81,
+                    "endColumn": 67,
+                    "content": "memcpy(st->codec->extradata, p, st->codec->extradata_size)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}

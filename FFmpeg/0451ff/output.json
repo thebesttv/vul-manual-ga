@@ -1,0 +1,153 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/vul-manual:0451ff",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "resourceLeak-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 181,
+                    "beginColumn": 5,
+                    "endLine": 181,
+                    "endColumn": 43,
+                    "content": "ptr = *buf = av_realloc(NULL, buf_len)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 182,
+                    "beginColumn": 5,
+                    "endLine": 182,
+                    "endColumn": 32,
+                    "content": "memset(*buf, '\\0', buf_len)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 184,
+                    "beginColumn": 5,
+                    "endLine": 184,
+                    "endColumn": 15,
+                    "content": "ptr[0] = 2",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 185,
+                    "beginColumn": 5,
+                    "endLine": 185,
+                    "endColumn": 15,
+                    "content": "offset = 1",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 186,
+                    "beginColumn": 15,
+                    "endLine": 186,
+                    "endColumn": 56,
+                    "content": "av_xiphlacing(&ptr[offset], priv->len[0])",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 56,
+                    "content": "offset += av_xiphlacing(&ptr[offset], priv->len[0])",
+                    "stmtKind": "CompoundAssignOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 187,
+                    "beginColumn": 15,
+                    "endLine": 187,
+                    "endColumn": 56,
+                    "content": "av_xiphlacing(&ptr[offset], priv->len[1])",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 187,
+                    "beginColumn": 5,
+                    "endLine": 187,
+                    "endColumn": 56,
+                    "content": "offset += av_xiphlacing(&ptr[offset], priv->len[1])",
+                    "stmtKind": "CompoundAssignOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 188,
+                    "beginColumn": 10,
+                    "endLine": 188,
+                    "endColumn": 15,
+                    "content": "i = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 188,
+                    "beginColumn": 17,
+                    "endLine": 188,
+                    "endColumn": 22,
+                    "content": "i < 3",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 193,
+                    "beginColumn": 12,
+                    "endLine": 193,
+                    "endColumn": 67,
+                    "content": "av_realloc(*buf, offset + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 193,
+                    "beginColumn": 5,
+                    "endLine": 193,
+                    "endColumn": 67,
+                    "content": "*buf = av_realloc(*buf, offset + FF_INPUT_BUFFER_PADDING_SIZE)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 194,
+                    "beginColumn": 5,
+                    "endLine": 194,
+                    "endColumn": 18,
+                    "content": "return offset",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavformat/oggparsevorbis.c",
+                    "beginLine": 172,
+                    "beginColumn": 1,
+                    "endLine": 195,
+                    "endColumn": 2,
+                    "content": "static unsigned int\nfixup_vorbis_headers(AVFormatContext * as, struct oggvorbis_ ..."
+                }
+            ]
+        }
+    ]
+}

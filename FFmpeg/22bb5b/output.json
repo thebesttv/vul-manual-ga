@@ -1,0 +1,101 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/vul-manual:22bb5b",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 77,
+                    "beginColumn": 5,
+                    "endLine": 77,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                        "beginLine": 77,
+                        "beginColumn": 11,
+                        "endLine": 77,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "size > (max_alloc_size - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 94,
+                    "beginColumn": 9,
+                    "endLine": 94,
+                    "endColumn": 13,
+                    "content": "size",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 132,
+                    "beginColumn": 8,
+                    "endLine": 132,
+                    "endColumn": 12,
+                    "content": "!ptr",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 140,
+                    "beginColumn": 5,
+                    "endLine": 140,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/mem.c",
+                    "beginLine": 75,
+                    "beginColumn": 1,
+                    "endLine": 141,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/fixed_dsp.c",
+                    "beginLine": 93,
+                    "beginColumn": 5,
+                    "endLine": 93,
+                    "endColumn": 69,
+                    "content": "AVFixedDSPContext * fdsp = av_malloc(sizeof(AVFixedDSPContext));",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/fixed_dsp.c",
+                    "beginLine": 94,
+                    "beginColumn": 5,
+                    "endLine": 94,
+                    "endColumn": 72,
+                    "content": "fdsp->vector_fmul_window_scaled = vector_fmul_window_fixed_scaled_c",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        }
+    ]
+}

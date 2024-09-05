@@ -1,0 +1,93 @@
+{
+    "root": "/home/thebesttv/FFmpeg",
+    "compile_commands": "/home/thebesttv/FFmpeg/compile_commands.json",
+    "docker": "thebesttv/vul-manual:ea37df",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2093,
+                    "beginColumn": 9,
+                    "endLine": 2093,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/FFmpeg/libavutil/pixdesc.c",
+                    "beginLine": 2090,
+                    "beginColumn": 1,
+                    "endLine": 2095,
+                    "endColumn": 2,
+                    "content": "const AVPixFmtDescriptor *av_pix_fmt_desc_get(enum AVPixelFormat pix_fmt)\n{\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/drawutils.c",
+                    "beginLine": 158,
+                    "beginColumn": 5,
+                    "endLine": 158,
+                    "endColumn": 66,
+                    "content": "const AVPixFmtDescriptor *desc = av_pix_fmt_desc_get(format);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/drawutils.c",
+                    "beginLine": 159,
+                    "beginColumn": 5,
+                    "endLine": 159,
+                    "endColumn": 36,
+                    "content": "const AVComponentDescriptor *c;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/drawutils.c",
+                    "beginLine": 160,
+                    "beginColumn": 14,
+                    "endLine": 160,
+                    "endColumn": 15,
+                    "content": "i",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/drawutils.c",
+                    "beginLine": 160,
+                    "beginColumn": 17,
+                    "endLine": 160,
+                    "endColumn": 30,
+                    "content": "nb_planes = 0",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/drawutils.c",
+                    "beginLine": 161,
+                    "beginColumn": 5,
+                    "endLine": 161,
+                    "endColumn": 39,
+                    "content": "int pixelstep[MAX_PLANES] = { 0 };",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/FFmpeg/libavfilter/drawutils.c",
+                    "beginLine": 163,
+                    "beginColumn": 9,
+                    "endLine": 163,
+                    "endColumn": 20,
+                    "content": "!desc->name",
+                    "stmtKind": "UnaryOperator"
+                }
+            ]
+        }
+    ]
+}
