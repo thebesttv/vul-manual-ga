@@ -127,5 +127,5 @@ jobs:
         id: image-name
         run: |
           cd ${{ matrix.dir }}
-          ${{ github.workspace }}/test.py \
+          ${{ github.workspace }}/test.py --verbose \
             ${{ github.workspace }}/tool-x86_64.AppImage
