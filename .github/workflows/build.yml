@@ -124,7 +124,6 @@ jobs:
           chmod +x tool-x86_64.AppImage
 
       - name: Run test
-        id: image-name
         run: |
           cd ${{ matrix.dir }}
           ${{ github.workspace }}/test.py \
