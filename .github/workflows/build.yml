@@ -128,7 +128,7 @@ jobs:
           cd ${{ matrix.dir }}
 
           FLAGS=""
-          [ ${{ runner.debug }} = "1" ] && FLAGS+="--verbose"
+          [ "${{ runner.debug }}" = "1" ] && FLAGS+="--verbose"
           echo Flags: ${FLAGS}
 
           ${{ github.workspace }}/test.py \
