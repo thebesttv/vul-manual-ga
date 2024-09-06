@@ -126,5 +126,11 @@ jobs:
       - name: Run test
         run: |
           cd ${{ matrix.dir }}
+
+          FLAGS=""
+          [ ${{ runner.debug }} = "1" ] && FLAGS+="--verbose"
+          echo Flags: ${FLAGS}
+
           ${{ github.workspace }}/test.py \
+            ${FLAGS} \
             ${{ github.workspace }}/tool-x86_64.AppImage
