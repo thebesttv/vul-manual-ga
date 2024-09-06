@@ -1,7 +1,7 @@
 {
     "root": "/home/thebesttv/libav",
     "compile_commands": "/home/thebesttv/libav/compile_commands.json",
-    "docker": "thebesttv/vul-manual:6a89b4",
+    "docker": "thebesttv/vul-manual:libav-6a89b4",
     "source": "/data/input.json",
     "results": [
         {
