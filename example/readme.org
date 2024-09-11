@@ -44,7 +44,7 @@ Dockerfile 现在被分成了很多块，使用 =*.m4= 文件把每一步合并�
 
 生成 =output.json= 的参数：
 #+begin_src bash
-  thebesttv --no-npe-good-source --no-nodes input.json
+  thebesttv --no-good-source --no-nodes --npe-fix input.json
 #+end_src
 
 *** 直接在 Docker Image 中生成路径
