@@ -36,7 +36,8 @@ docker run -t \
     -v {tool_path}:{docker_tool_path} \
     {image} \
     sudo {docker_tool_path} \
-        --no-npe-good-source --no-nodes \
+        --no-good-source --no-nodes \
+        --npe-fix \
         {docker_dir}/input.json \
 '''
     logging.info(f"Running command: {cmd}")
