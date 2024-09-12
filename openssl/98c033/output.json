@@ -1,0 +1,248 @@
+{
+    "root": "/home/thebesttv/openssl",
+    "compile_commands": "/home/thebesttv/openssl/compile_commands.json",
+    "docker": "thebesttv/vul-manual:openssl-98c033",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "beginLine": 134,
+                    "beginColumn": 5,
+                    "endLine": 134,
+                    "endColumn": 32,
+                    "content": "data = (BIO_ACCEPT *)a->ptr",
+                    "variable": {
+                        "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                        "beginLine": 134,
+                        "beginColumn": 5,
+                        "endLine": 134,
+                        "endColumn": 9,
+                        "content": "data"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "beginLine": 136,
+                    "beginColumn": 9,
+                    "endLine": 136,
+                    "endColumn": 20,
+                    "content": "a->shutdown",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "beginLine": 137,
+                    "beginColumn": 9,
+                    "endLine": 137,
+                    "endColumn": 29,
+                    "content": "acpt_close_socket(a)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "beginLine": 138,
+                    "beginColumn": 9,
+                    "endLine": 138,
+                    "endColumn": 30,
+                    "content": "BIO_ACCEPT_free(data)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "beginLine": 102,
+                    "beginColumn": 1,
+                    "endLine": 113,
+                    "endColumn": 2,
+                    "content": "static void BIO_ACCEPT_free(BIO_ACCEPT *a)\n{\n    OPENSSL_free(a->param_addr);\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "beginLine": 104,
+                    "beginColumn": 5,
+                    "endLine": 104,
+                    "endColumn": 32,
+                    "content": "OPENSSL_free(a->param_addr)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "beginLine": 277,
+                    "beginColumn": 5,
+                    "endLine": 277,
+                    "endColumn": 33,
+                    "content": "data = (BIO_CONNECT *)a->ptr",
+                    "variable": {
+                        "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                        "beginLine": 277,
+                        "beginColumn": 5,
+                        "endLine": 277,
+                        "endColumn": 9,
+                        "content": "data"
+                    },
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "beginLine": 279,
+                    "beginColumn": 9,
+                    "endLine": 279,
+                    "endColumn": 20,
+                    "content": "a->shutdown",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "beginLine": 280,
+                    "beginColumn": 9,
+                    "endLine": 280,
+                    "endColumn": 29,
+                    "content": "conn_close_socket(a)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "beginLine": 281,
+                    "beginColumn": 9,
+                    "endLine": 281,
+                    "endColumn": 31,
+                    "content": "BIO_CONNECT_free(data)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "beginLine": 233,
+                    "beginColumn": 1,
+                    "endLine": 239,
+                    "endColumn": 2,
+                    "content": "void BIO_CONNECT_free(BIO_CONNECT *a)\n{\n    OPENSSL_free(a->param_hostname);\n    ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "beginLine": 235,
+                    "beginColumn": 5,
+                    "endLine": 235,
+                    "endColumn": 36,
+                    "content": "OPENSSL_free(a->param_hostname)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 38,
+                    "beginColumn": 9,
+                    "endLine": 38,
+                    "endColumn": 20,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 30,
+                    "beginColumn": 1,
+                    "endLine": 79,
+                    "endColumn": 2,
+                    "content": "BN_BLINDING *BN_BLINDING_new(const BIGNUM *A, const BIGNUM *Ai, BIGNUM *mod)\n{\n  ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 225,
+                    "beginColumn": 9,
+                    "endLine": 225,
+                    "endColumn": 45,
+                    "content": "ret = BN_BLINDING_new(NULL, NULL, m)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 229,
+                    "beginColumn": 9,
+                    "endLine": 229,
+                    "endColumn": 20,
+                    "content": "ret == NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 279,
+                    "beginColumn": 2,
+                    "endLine": 283,
+                    "endColumn": 6,
+                    "content": "err:\n    if (b == NULL) {\n        BN_BLINDING_free(ret);\n        ret = NULL;\n    ...",
+                    "stmtKind": "LabelStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 280,
+                    "beginColumn": 9,
+                    "endLine": 280,
+                    "endColumn": 18,
+                    "content": "b == NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 281,
+                    "beginColumn": 9,
+                    "endLine": 281,
+                    "endColumn": 30,
+                    "content": "BN_BLINDING_free(ret)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 81,
+                    "beginColumn": 1,
+                    "endLine": 89,
+                    "endColumn": 2,
+                    "content": "void BN_BLINDING_free(BN_BLINDING *r)\n{\n    BN_free(r->A);\n    BN_free(r->Ai);\n  ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "beginLine": 83,
+                    "beginColumn": 5,
+                    "endLine": 83,
+                    "endColumn": 18,
+                    "content": "BN_free(r->A)",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}

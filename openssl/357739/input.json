@@ -1,0 +1,24 @@
+{
+    "root": "/home/thebesttv/openssl",
+    "compile_commands": "/home/thebesttv/openssl/compile_commands.json",
+    "docker": "thebesttv/vul-manual:openssl-357739",
+    "results": [
+        {
+            "type": "npe",
+            "locations": [
+                {
+                    "type": "source",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "line": 382,
+                    "column": 28
+                },
+                {
+                    "type": "sink",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "line": 384,
+                    "column": 5
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,546 @@
+{
+    "root": "/home/thebesttv/openssl",
+    "compile_commands": "/home/thebesttv/openssl/compile_commands.json",
+    "docker": "thebesttv/vul-manual:openssl-6ce84e",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "beginLine": 357,
+                    "beginColumn": 5,
+                    "endLine": 357,
+                    "endColumn": 55,
+                    "content": "OPENSSL_INIT_SETTINGS *ret = malloc(sizeof(*ret));",
+                    "variable": {
+                        "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                        "beginLine": 357,
+                        "beginColumn": 28,
+                        "endLine": 357,
+                        "endColumn": 31,
+                        "content": "ret"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "beginLine": 359,
+                    "beginColumn": 9,
+                    "endLine": 359,
+                    "endColumn": 20,
+                    "content": "ret != NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "beginLine": 361,
+                    "beginColumn": 5,
+                    "endLine": 361,
+                    "endColumn": 37,
+                    "content": "ret->flags = DEFAULT_CONF_MFLAGS",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 74,
+                    "beginColumn": 10,
+                    "endLine": 74,
+                    "endColumn": 21,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 50,
+                    "beginColumn": 1,
+                    "endLine": 80,
+                    "endColumn": 2,
+                    "content": "static EX_CALLBACKS *get_and_lock(int class_index)\n{\n    EX_CALLBACKS *ip;\n\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 382,
+                    "beginColumn": 5,
+                    "endLine": 382,
+                    "endColumn": 35,
+                    "content": "ip = get_and_lock(class_index)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 383,
+                    "beginColumn": 9,
+                    "endLine": 383,
+                    "endColumn": 44,
+                    "content": "sk_EX_CALLBACK_value(ip->meth, idx)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 383,
+                    "beginColumn": 5,
+                    "endLine": 383,
+                    "endColumn": 44,
+                    "content": "f = sk_EX_CALLBACK_value(ip->meth, idx)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 74,
+                    "beginColumn": 10,
+                    "endLine": 74,
+                    "endColumn": 21,
+                    "content": "return NULL",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 50,
+                    "beginColumn": 1,
+                    "endLine": 80,
+                    "endColumn": 2,
+                    "content": "static EX_CALLBACKS *get_and_lock(int class_index)\n{\n    EX_CALLBACKS *ip;\n\n     ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 161,
+                    "beginColumn": 5,
+                    "endLine": 161,
+                    "endColumn": 50,
+                    "content": "EX_CALLBACKS *ip = get_and_lock(class_index);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 163,
+                    "beginColumn": 9,
+                    "endLine": 163,
+                    "endColumn": 19,
+                    "content": "ip == NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 166,
+                    "beginColumn": 9,
+                    "endLine": 166,
+                    "endColumn": 25,
+                    "content": "ip->meth == NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 167,
+                    "beginColumn": 20,
+                    "endLine": 167,
+                    "endColumn": 45,
+                    "content": "sk_EX_CALLBACK_new_null()",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 167,
+                    "beginColumn": 9,
+                    "endLine": 167,
+                    "endColumn": 45,
+                    "content": "ip->meth = sk_EX_CALLBACK_new_null()",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 170,
+                    "beginColumn": 13,
+                    "endLine": 170,
+                    "endColumn": 29,
+                    "content": "ip->meth == NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 172,
+                    "beginColumn": 13,
+                    "endLine": 172,
+                    "endColumn": 78,
+                    "content": "CRYPTOerr(CRYPTO_F_CRYPTO_GET_EX_NEW_INDEX, ERR_R_MALLOC_FAILURE)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 196,
+                    "beginColumn": 2,
+                    "endLine": 197,
+                    "endColumn": 39,
+                    "content": "err:\n    CRYPTO_THREAD_unlock(ex_data_lock)",
+                    "stmtKind": "LabelStmt"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/openssl/crypto/threads_pthread.c",
+                    "beginLine": 83,
+                    "beginColumn": 1,
+                    "endLine": 94,
+                    "endColumn": 2,
+                    "content": "int CRYPTO_THREAD_unlock(CRYPTO_RWLOCK *lock)\n{\n# ifdef USE_RWLOCK\n    if (pthre ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/threads_pthread.c",
+                    "beginLine": 86,
+                    "beginColumn": 9,
+                    "endLine": 86,
+                    "endColumn": 36,
+                    "content": "pthread_rwlock_unlock(lock)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/threads_pthread.c",
+                    "beginLine": 86,
+                    "beginColumn": 9,
+                    "endLine": 86,
+                    "endColumn": 41,
+                    "content": "pthread_rwlock_unlock(lock) != 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/threads_pthread.c",
+                    "beginLine": 87,
+                    "beginColumn": 9,
+                    "endLine": 87,
+                    "endColumn": 17,
+                    "content": "return 0",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/openssl/crypto/threads_pthread.c",
+                    "beginLine": 83,
+                    "beginColumn": 1,
+                    "endLine": 94,
+                    "endColumn": 2,
+                    "content": "int CRYPTO_THREAD_unlock(CRYPTO_RWLOCK *lock)\n{\n# ifdef USE_RWLOCK\n    if (pthre ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 17,
+                    "content": "return toret",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 155,
+                    "beginColumn": 1,
+                    "endLine": 199,
+                    "endColumn": 2,
+                    "content": "int CRYPTO_get_ex_new_index(int class_index, long argl, void *argp,\n             ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 244,
+                    "beginColumn": 5,
+                    "endLine": 246,
+                    "endColumn": 66,
+                    "content": "saved_idx3 = CRYPTO_get_ex_new_index(CRYPTO_EX_INDEX_APP,\n                       ...",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 247,
+                    "beginColumn": 10,
+                    "endLine": 247,
+                    "endColumn": 69,
+                    "content": "TEST_ptr_null(CRYPTO_get_ex_data(&t1->ex_data, saved_idx3))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 247,
+                    "beginColumn": 9,
+                    "endLine": 247,
+                    "endColumn": 69,
+                    "content": "!TEST_ptr_null(CRYPTO_get_ex_data(&t1->ex_data, saved_idx3))",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 250,
+                    "beginColumn": 5,
+                    "endLine": 250,
+                    "endColumn": 26,
+                    "content": "MYOBJ_sethello(t1, p)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 251,
+                    "beginColumn": 10,
+                    "endLine": 251,
+                    "endColumn": 28,
+                    "content": "MYOBJ_gethello(t1)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 251,
+                    "beginColumn": 5,
+                    "endLine": 251,
+                    "endColumn": 28,
+                    "content": "cp = MYOBJ_gethello(t1)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 252,
+                    "beginColumn": 10,
+                    "endLine": 252,
+                    "endColumn": 28,
+                    "content": "TEST_ptr_eq(cp, p)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 252,
+                    "beginColumn": 9,
+                    "endLine": 252,
+                    "endColumn": 28,
+                    "content": "!TEST_ptr_eq(cp, p)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 255,
+                    "beginColumn": 5,
+                    "endLine": 255,
+                    "endColumn": 27,
+                    "content": "MYOBJ_sethello2(t1, p)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 256,
+                    "beginColumn": 10,
+                    "endLine": 256,
+                    "endColumn": 29,
+                    "content": "MYOBJ_gethello2(t1)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 256,
+                    "beginColumn": 5,
+                    "endLine": 256,
+                    "endColumn": 29,
+                    "content": "cp = MYOBJ_gethello2(t1)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 257,
+                    "beginColumn": 10,
+                    "endLine": 257,
+                    "endColumn": 28,
+                    "content": "TEST_ptr_eq(cp, p)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 257,
+                    "beginColumn": 9,
+                    "endLine": 257,
+                    "endColumn": 28,
+                    "content": "!TEST_ptr_eq(cp, p)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 260,
+                    "beginColumn": 5,
+                    "endLine": 260,
+                    "endColumn": 29,
+                    "content": "MYOBJ_allochello3(t1, p)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 176,
+                    "beginColumn": 1,
+                    "endLine": 187,
+                    "endColumn": 2,
+                    "content": "static void MYOBJ_allochello3(MYOBJ *obj, char *cp)\n{\n    MYOBJ_EX_DATA* ex_data ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 178,
+                    "beginColumn": 5,
+                    "endLine": 178,
+                    "endColumn": 35,
+                    "content": "MYOBJ_EX_DATA* ex_data = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 180,
+                    "beginColumn": 9,
+                    "endLine": 180,
+                    "endColumn": 79,
+                    "content": "TEST_ptr_null(ex_data = CRYPTO_get_ex_data(&obj->ex_data, saved_idx3))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/test/exdatatest.c",
+                    "beginLine": 181,
+                    "beginColumn": 12,
+                    "endLine": 182,
+                    "endColumn": 70,
+                    "content": "TEST_true(CRYPTO_alloc_ex_data(CRYPTO_EX_INDEX_APP, obj,\n                        ...",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 369,
+                    "beginColumn": 1,
+                    "endLine": 393,
+                    "endColumn": 2,
+                    "content": "int CRYPTO_alloc_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad,\n        ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 372,
+                    "beginColumn": 5,
+                    "endLine": 372,
+                    "endColumn": 20,
+                    "content": "EX_CALLBACK *f;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 373,
+                    "beginColumn": 5,
+                    "endLine": 373,
+                    "endColumn": 22,
+                    "content": "EX_CALLBACKS *ip;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 374,
+                    "beginColumn": 5,
+                    "endLine": 374,
+                    "endColumn": 18,
+                    "content": "void *curval;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 376,
+                    "beginColumn": 14,
+                    "endLine": 376,
+                    "endColumn": 41,
+                    "content": "CRYPTO_get_ex_data(ad, idx)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 376,
+                    "beginColumn": 5,
+                    "endLine": 376,
+                    "endColumn": 41,
+                    "content": "curval = CRYPTO_get_ex_data(ad, idx)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 379,
+                    "beginColumn": 9,
+                    "endLine": 379,
+                    "endColumn": 23,
+                    "content": "curval != NULL",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 380,
+                    "beginColumn": 9,
+                    "endLine": 380,
+                    "endColumn": 17,
+                    "content": "return 1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "beginLine": 369,
+                    "beginColumn": 1,
+                    "endLine": 393,
+                    "endColumn": 2,
+                    "content": "int CRYPTO_alloc_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad,\n        ..."
+                }
+            ]
+        }
+    ]
+}

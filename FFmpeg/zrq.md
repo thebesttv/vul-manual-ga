@@ -7,4 +7,4 @@ docker run -it \
     -v $PWD:/data \
     -p 12345:22 \
     thebesttv/vul-manual:*
-thebesttv --no-npe-good-source --no-nodes /data/input.json
+thebesttv --no-good-source --no-nodes --npe-fix /data/input.json
