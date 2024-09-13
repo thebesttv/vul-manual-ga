@@ -1,0 +1,42 @@
+{
+    "root": "/home/thebesttv/openssl",
+    "compile_commands": "/home/thebesttv/openssl/compile_commands.json",
+    "docker": "thebesttv/vul-manual:openssl-357739",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "beginLine": 382,
+                    "beginColumn": 5,
+                    "endLine": 382,
+                    "endColumn": 55,
+                    "content": "OPENSSL_INIT_SETTINGS *ret = malloc(sizeof(*ret));",
+                    "variable": {
+                        "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                        "beginLine": 382,
+                        "beginColumn": 28,
+                        "endLine": 382,
+                        "endColumn": 31,
+                        "content": "ret"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "beginLine": 384,
+                    "beginColumn": 5,
+                    "endLine": 384,
+                    "endColumn": 33,
+                    "content": "memset(ret, 0, sizeof(*ret))",
+                    "stmtKind": "CallExpr"
+                }
+            ]
+        }
+    ]
+}

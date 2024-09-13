@@ -1,0 +1,88 @@
+{
+    "root": "/home/thebesttv/openssl",
+    "compile_commands": "/home/thebesttv/openssl/compile_commands.json",
+    "docker": "thebesttv/vul-manual:openssl-98c033",
+    "results": [
+        {
+            "type": "npe",
+            "locations": [
+                {
+                    "type": "source",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "line": 134,
+                    "column": 5
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "line": 138,
+                    "column": 9
+                },
+                {
+                    "type": "sink",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_acpt.c",
+                    "line": 104,
+                    "column": 5
+                }
+            ]
+        },
+        {
+            "type": "npe",
+            "locations": [
+                {
+                    "type": "source",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "line": 277,
+                    "column": 5
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "line": 281,
+                    "column": 9
+                },
+                {
+                    "type": "sink",
+                    "file": "/home/thebesttv/openssl/crypto/bio/bss_conn.c",
+                    "line": 235,
+                    "column": 5
+                }
+            ]
+        },
+        {
+            "type": "npe",
+            "locations": [
+                {
+                    "type": "source",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "line": 38,
+                    "column": 9
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "line": 225,
+                    "column": 9
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "line": 230,
+                    "column": 9
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "line": 281,
+                    "column": 9
+                },
+                {
+                    "type": "sink",
+                    "file": "/home/thebesttv/openssl/crypto/bn/bn_blind.c",
+                    "line": 83,
+                    "column": 13
+                }
+            ]
+        }
+    ]
+}

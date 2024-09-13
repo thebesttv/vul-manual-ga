@@ -1,0 +1,3406 @@
+{
+    "root": "/home/thebesttv/libav",
+    "compile_commands": "/home/thebesttv/libav/compile_commands.json",
+    "docker": "thebesttv/vul-manual:710b0e",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 63,
+                        "beginColumn": 11,
+                        "endLine": 63,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 193,
+                    "beginColumn": 5,
+                    "endLine": 193,
+                    "endColumn": 36,
+                    "content": "tmp1.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 194,
+                    "beginColumn": 20,
+                    "endLine": 194,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 194,
+                    "beginColumn": 5,
+                    "endLine": 194,
+                    "endColumn": 49,
+                    "content": "tmp1.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 19,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 5,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "tmp1.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 197,
+                    "beginColumn": 5,
+                    "endLine": 197,
+                    "endColumn": 22,
+                    "content": "tmp2.length = 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 23,
+                    "content": "tmp2.maxlength = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 199,
+                    "beginColumn": 5,
+                    "endLine": 199,
+                    "endColumn": 21,
+                    "content": "tmp2.current = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 17,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "av_mallocz(256 * 4)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 205,
+                    "beginColumn": 9,
+                    "endLine": 205,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp1, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 105,
+                    "beginColumn": 12,
+                    "endLine": 105,
+                    "endColumn": 18,
+                    "content": "length",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 106,
+                    "beginColumn": 13,
+                    "endLine": 106,
+                    "endColumn": 43,
+                    "content": "hc->bits[hc->current] = prefix",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 0,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 193,
+                    "beginColumn": 5,
+                    "endLine": 193,
+                    "endColumn": 36,
+                    "content": "tmp1.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 194,
+                    "beginColumn": 20,
+                    "endLine": 194,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 194,
+                    "beginColumn": 5,
+                    "endLine": 194,
+                    "endColumn": 49,
+                    "content": "tmp1.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 19,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 5,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "tmp1.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 197,
+                    "beginColumn": 5,
+                    "endLine": 197,
+                    "endColumn": 22,
+                    "content": "tmp2.length = 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 23,
+                    "content": "tmp2.maxlength = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 199,
+                    "beginColumn": 5,
+                    "endLine": 199,
+                    "endColumn": 21,
+                    "content": "tmp2.current = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 17,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "av_mallocz(256 * 4)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 205,
+                    "beginColumn": 9,
+                    "endLine": 205,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp1, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 102,
+                    "beginColumn": 13,
+                    "endLine": 102,
+                    "endColumn": 64,
+                    "content": "av_log(NULL, AV_LOG_ERROR, \"Tree size exceeded!\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 103,
+                    "beginColumn": 13,
+                    "endLine": 103,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 63,
+                        "beginColumn": 11,
+                        "endLine": 63,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 194,
+                    "beginColumn": 5,
+                    "endLine": 194,
+                    "endColumn": 49,
+                    "content": "tmp1.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 19,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 5,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "tmp1.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 197,
+                    "beginColumn": 5,
+                    "endLine": 197,
+                    "endColumn": 22,
+                    "content": "tmp2.length = 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 23,
+                    "content": "tmp2.maxlength = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 199,
+                    "beginColumn": 5,
+                    "endLine": 199,
+                    "endColumn": 21,
+                    "content": "tmp2.current = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 17,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "av_mallocz(256 * 4)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 205,
+                    "beginColumn": 9,
+                    "endLine": 205,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp1, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 105,
+                    "beginColumn": 12,
+                    "endLine": 105,
+                    "endColumn": 18,
+                    "content": "length",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 106,
+                    "beginColumn": 13,
+                    "endLine": 106,
+                    "endColumn": 43,
+                    "content": "hc->bits[hc->current] = prefix",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 107,
+                    "beginColumn": 13,
+                    "endLine": 107,
+                    "endColumn": 46,
+                    "content": "hc->lengths[hc->current] = length",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 194,
+                    "beginColumn": 5,
+                    "endLine": 194,
+                    "endColumn": 49,
+                    "content": "tmp1.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 19,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 5,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "tmp1.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 197,
+                    "beginColumn": 5,
+                    "endLine": 197,
+                    "endColumn": 22,
+                    "content": "tmp2.length = 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 23,
+                    "content": "tmp2.maxlength = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 199,
+                    "beginColumn": 5,
+                    "endLine": 199,
+                    "endColumn": 21,
+                    "content": "tmp2.current = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 17,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "av_mallocz(256 * 4)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 205,
+                    "beginColumn": 9,
+                    "endLine": 205,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp1, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 102,
+                    "beginColumn": 13,
+                    "endLine": 102,
+                    "endColumn": 64,
+                    "content": "av_log(NULL, AV_LOG_ERROR, \"Tree size exceeded!\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 103,
+                    "beginColumn": 13,
+                    "endLine": 103,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 63,
+                        "beginColumn": 11,
+                        "endLine": 63,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 5,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "tmp1.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 197,
+                    "beginColumn": 5,
+                    "endLine": 197,
+                    "endColumn": 22,
+                    "content": "tmp2.length = 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 23,
+                    "content": "tmp2.maxlength = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 199,
+                    "beginColumn": 5,
+                    "endLine": 199,
+                    "endColumn": 21,
+                    "content": "tmp2.current = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 17,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "av_mallocz(256 * 4)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 205,
+                    "beginColumn": 9,
+                    "endLine": 205,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp1, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 105,
+                    "beginColumn": 12,
+                    "endLine": 105,
+                    "endColumn": 18,
+                    "content": "length",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 106,
+                    "beginColumn": 13,
+                    "endLine": 106,
+                    "endColumn": 43,
+                    "content": "hc->bits[hc->current] = prefix",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 107,
+                    "beginColumn": 13,
+                    "endLine": 107,
+                    "endColumn": 46,
+                    "content": "hc->lengths[hc->current] = length",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 112,
+                    "beginColumn": 35,
+                    "endLine": 112,
+                    "endColumn": 50,
+                    "content": "get_bits(gb, 8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 112,
+                    "beginColumn": 9,
+                    "endLine": 112,
+                    "endColumn": 50,
+                    "content": "hc->values[hc->current] = get_bits(gb, 8)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 195,
+                    "beginColumn": 5,
+                    "endLine": 195,
+                    "endColumn": 48,
+                    "content": "tmp1.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 197,
+                    "beginColumn": 5,
+                    "endLine": 197,
+                    "endColumn": 22,
+                    "content": "tmp2.length = 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 198,
+                    "beginColumn": 5,
+                    "endLine": 198,
+                    "endColumn": 23,
+                    "content": "tmp2.maxlength = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 199,
+                    "beginColumn": 5,
+                    "endLine": 199,
+                    "endColumn": 21,
+                    "content": "tmp2.current = 0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 17,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "av_mallocz(256 * 4)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 205,
+                    "beginColumn": 9,
+                    "endLine": 205,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp1, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 102,
+                    "beginColumn": 13,
+                    "endLine": 102,
+                    "endColumn": 64,
+                    "content": "av_log(NULL, AV_LOG_ERROR, \"Tree size exceeded!\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 103,
+                    "beginColumn": 13,
+                    "endLine": 103,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 3,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 63,
+                        "beginColumn": 11,
+                        "endLine": 63,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 215,
+                    "beginColumn": 9,
+                    "endLine": 215,
+                    "endColumn": 70,
+                    "content": "av_log(smk->avctx, AV_LOG_ERROR, \"Skipping low bytes tree\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 217,
+                    "beginColumn": 8,
+                    "endLine": 217,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 218,
+                    "beginColumn": 9,
+                    "endLine": 218,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp2, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 105,
+                    "beginColumn": 12,
+                    "endLine": 105,
+                    "endColumn": 18,
+                    "content": "length",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 106,
+                    "beginColumn": 13,
+                    "endLine": 106,
+                    "endColumn": 43,
+                    "content": "hc->bits[hc->current] = prefix",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 3,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 200,
+                    "beginColumn": 5,
+                    "endLine": 200,
+                    "endColumn": 36,
+                    "content": "tmp2.bits = av_mallocz(256 * 4)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 20,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 215,
+                    "beginColumn": 9,
+                    "endLine": 215,
+                    "endColumn": 70,
+                    "content": "av_log(smk->avctx, AV_LOG_ERROR, \"Skipping low bytes tree\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 217,
+                    "beginColumn": 8,
+                    "endLine": 217,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 218,
+                    "beginColumn": 9,
+                    "endLine": 218,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp2, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 102,
+                    "beginColumn": 13,
+                    "endLine": 102,
+                    "endColumn": 64,
+                    "content": "av_log(NULL, AV_LOG_ERROR, \"Tree size exceeded!\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 103,
+                    "beginColumn": 13,
+                    "endLine": 103,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 4,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 63,
+                        "beginColumn": 11,
+                        "endLine": 63,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 215,
+                    "beginColumn": 9,
+                    "endLine": 215,
+                    "endColumn": 70,
+                    "content": "av_log(smk->avctx, AV_LOG_ERROR, \"Skipping low bytes tree\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 217,
+                    "beginColumn": 8,
+                    "endLine": 217,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 218,
+                    "beginColumn": 9,
+                    "endLine": 218,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp2, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 105,
+                    "beginColumn": 12,
+                    "endLine": 105,
+                    "endColumn": 18,
+                    "content": "length",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 106,
+                    "beginColumn": 13,
+                    "endLine": 106,
+                    "endColumn": 43,
+                    "content": "hc->bits[hc->current] = prefix",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 107,
+                    "beginColumn": 13,
+                    "endLine": 107,
+                    "endColumn": 46,
+                    "content": "hc->lengths[hc->current] = length",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 4,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 201,
+                    "beginColumn": 5,
+                    "endLine": 201,
+                    "endColumn": 49,
+                    "content": "tmp2.lengths = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 19,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 215,
+                    "beginColumn": 9,
+                    "endLine": 215,
+                    "endColumn": 70,
+                    "content": "av_log(smk->avctx, AV_LOG_ERROR, \"Skipping low bytes tree\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 217,
+                    "beginColumn": 8,
+                    "endLine": 217,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 218,
+                    "beginColumn": 9,
+                    "endLine": 218,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp2, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 102,
+                    "beginColumn": 13,
+                    "endLine": 102,
+                    "endColumn": 64,
+                    "content": "av_log(NULL, AV_LOG_ERROR, \"Tree size exceeded!\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 103,
+                    "beginColumn": 13,
+                    "endLine": 103,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 5,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 63,
+                        "beginColumn": 11,
+                        "endLine": 63,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 215,
+                    "beginColumn": 9,
+                    "endLine": 215,
+                    "endColumn": 70,
+                    "content": "av_log(smk->avctx, AV_LOG_ERROR, \"Skipping low bytes tree\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 217,
+                    "beginColumn": 8,
+                    "endLine": 217,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 218,
+                    "beginColumn": 9,
+                    "endLine": 218,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp2, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 105,
+                    "beginColumn": 12,
+                    "endLine": 105,
+                    "endColumn": 18,
+                    "content": "length",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 106,
+                    "beginColumn": 13,
+                    "endLine": 106,
+                    "endColumn": 43,
+                    "content": "hc->bits[hc->current] = prefix",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 107,
+                    "beginColumn": 13,
+                    "endLine": 107,
+                    "endColumn": 46,
+                    "content": "hc->lengths[hc->current] = length",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 112,
+                    "beginColumn": 35,
+                    "endLine": 112,
+                    "endColumn": 50,
+                    "content": "get_bits(gb, 8)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 112,
+                    "beginColumn": 9,
+                    "endLine": 112,
+                    "endColumn": 50,
+                    "content": "hc->values[hc->current] = get_bits(gb, 8)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 5,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 63,
+                    "beginColumn": 5,
+                    "endLine": 63,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 9,
+                    "endLine": 69,
+                    "endColumn": 30,
+                    "content": "size > (INT_MAX - 32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 69,
+                    "beginColumn": 34,
+                    "endLine": 69,
+                    "endColumn": 39,
+                    "content": "!size",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 80,
+                    "beginColumn": 9,
+                    "endLine": 80,
+                    "endColumn": 39,
+                    "content": "posix_memalign(&ptr, 32, size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 113,
+                    "beginColumn": 5,
+                    "endLine": 113,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 61,
+                    "beginColumn": 1,
+                    "endLine": 114,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 186,
+                    "beginColumn": 5,
+                    "endLine": 186,
+                    "endColumn": 33,
+                    "content": "void *ptr = av_malloc(size);",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 187,
+                    "beginColumn": 9,
+                    "endLine": 187,
+                    "endColumn": 12,
+                    "content": "ptr",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 189,
+                    "beginColumn": 5,
+                    "endLine": 189,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 184,
+                    "beginColumn": 1,
+                    "endLine": 190,
+                    "endColumn": 2,
+                    "content": "void *av_mallocz(size_t size)\n{\n    void *ptr = av_malloc(size);\n    if (ptr)\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 202,
+                    "beginColumn": 5,
+                    "endLine": 202,
+                    "endColumn": 48,
+                    "content": "tmp2.values = av_mallocz(256 * sizeof(int))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 204,
+                    "beginColumn": 8,
+                    "endLine": 204,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 215,
+                    "beginColumn": 9,
+                    "endLine": 215,
+                    "endColumn": 70,
+                    "content": "av_log(smk->avctx, AV_LOG_ERROR, \"Skipping low bytes tree\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 217,
+                    "beginColumn": 8,
+                    "endLine": 217,
+                    "endColumn": 21,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 218,
+                    "beginColumn": 9,
+                    "endLine": 218,
+                    "endColumn": 45,
+                    "content": "smacker_decode_tree(gb, &tmp2, 0, 0)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "entry",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 9,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "get_bits1(gb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 100,
+                    "beginColumn": 8,
+                    "endLine": 100,
+                    "endColumn": 22,
+                    "content": "!get_bits1(gb)",
+                    "stmtKind": "UnaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 101,
+                    "beginColumn": 12,
+                    "endLine": 101,
+                    "endColumn": 30,
+                    "content": "hc->current >= 256",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 102,
+                    "beginColumn": 13,
+                    "endLine": 102,
+                    "endColumn": 64,
+                    "content": "av_log(NULL, AV_LOG_ERROR, \"Tree size exceeded!\\n\")",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 103,
+                    "beginColumn": 13,
+                    "endLine": 103,
+                    "endColumn": 22,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavcodec/smacker.c",
+                    "beginLine": 98,
+                    "beginColumn": 1,
+                    "endLine": 125,
+                    "endColumn": 2,
+                    "content": "static int smacker_decode_tree(GetBitContext *gb, HuffContext *hc, uint32_t pref ..."
+                }
+            ]
+        }
+    ]
+}

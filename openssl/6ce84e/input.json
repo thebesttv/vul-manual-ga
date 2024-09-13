@@ -1,0 +1,47 @@
+{
+    "root": "/home/thebesttv/openssl",
+    "compile_commands": "/home/thebesttv/openssl/compile_commands.json",
+    "docker": "thebesttv/vul-manual:openssl-6ce84e",
+    "results": [
+        {
+            "type": "npe",
+            "locations": [
+                {
+                    "type": "source",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "line": 357,
+                    "column": 28
+                },
+                {
+                    "type": "sink",
+                    "file": "/home/thebesttv/openssl/crypto/conf/conf_lib.c",
+                    "line": 361,
+                    "column": 5
+                }
+            ]
+        },
+        {
+            "type": "npe",
+            "locations": [
+                {
+                    "type": "source",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "line": 74,
+                    "column": 10
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "line": 382,
+                    "column": 5
+                },
+                {
+                    "type": "sink",
+                    "file": "/home/thebesttv/openssl/crypto/ex_data.c",
+                    "line": 383,
+                    "column": 30
+                }
+            ]
+        }
+    ]
+}

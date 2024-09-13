@@ -1,0 +1,492 @@
+{
+    "root": "/home/thebesttv/libav",
+    "compile_commands": "/home/thebesttv/libav/compile_commands.json",
+    "docker": "thebesttv/vul-manual:libav-6a89b4",
+    "source": "/data/input.json",
+    "results": [
+        {
+            "type": "npe-bug",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 66,
+                        "beginColumn": 11,
+                        "endLine": 66,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 72,
+                    "beginColumn": 8,
+                    "endLine": 72,
+                    "endColumn": 27,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 115,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 351,
+                    "beginColumn": 9,
+                    "endLine": 351,
+                    "endColumn": 91,
+                    "content": "nsv->nsvs_file_offset = av_malloc((unsigned)table_entries_used * sizeof(uint32_t ...",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 353,
+                    "beginColumn": 13,
+                    "endLine": 353,
+                    "endColumn": 16,
+                    "content": "i=0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 353,
+                    "beginColumn": 17,
+                    "endLine": 353,
+                    "endColumn": 37,
+                    "content": "i<table_entries_used",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 354,
+                    "beginColumn": 40,
+                    "endLine": 354,
+                    "endColumn": 53,
+                    "content": "avio_rl32(pb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 354,
+                    "beginColumn": 13,
+                    "endLine": 354,
+                    "endColumn": 60,
+                    "content": "nsv->nsvs_file_offset[i] = avio_rl32(pb) + size",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 1,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 72,
+                    "beginColumn": 8,
+                    "endLine": 72,
+                    "endColumn": 27,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 115,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 351,
+                    "beginColumn": 9,
+                    "endLine": 351,
+                    "endColumn": 91,
+                    "content": "nsv->nsvs_file_offset = av_malloc((unsigned)table_entries_used * sizeof(uint32_t ...",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 353,
+                    "beginColumn": 13,
+                    "endLine": 353,
+                    "endColumn": 16,
+                    "content": "i=0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 353,
+                    "beginColumn": 17,
+                    "endLine": 353,
+                    "endColumn": 37,
+                    "content": "i<table_entries_used",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 356,
+                    "beginColumn": 12,
+                    "endLine": 356,
+                    "endColumn": 46,
+                    "content": "table_entries > table_entries_used",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 386,
+                    "beginColumn": 5,
+                    "endLine": 386,
+                    "endColumn": 53,
+                    "content": "avio_seek(pb, nsv->base_offset + size, SEEK_SET)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 388,
+                    "beginColumn": 9,
+                    "endLine": 388,
+                    "endColumn": 24,
+                    "content": "pb->eof_reached",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 389,
+                    "beginColumn": 9,
+                    "endLine": 389,
+                    "endColumn": 18,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 272,
+                    "beginColumn": 1,
+                    "endLine": 392,
+                    "endColumn": 2,
+                    "content": "static int nsv_parse_NSVf_header(AVFormatContext *s)\n{\n    NSVContext *nsv = s-> ..."
+                }
+            ]
+        },
+        {
+            "type": "npe-bug",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "variable": {
+                        "file": "/home/thebesttv/libav/libavutil/mem.c",
+                        "beginLine": 66,
+                        "beginColumn": 11,
+                        "endLine": 66,
+                        "endColumn": 14,
+                        "content": "ptr"
+                    },
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 72,
+                    "beginColumn": 8,
+                    "endLine": 72,
+                    "endColumn": 27,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 115,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 358,
+                    "beginColumn": 13,
+                    "endLine": 358,
+                    "endColumn": 92,
+                    "content": "nsv->nsvs_timestamps = av_malloc((unsigned)table_entries_used*sizeof(uint32_t))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 359,
+                    "beginColumn": 17,
+                    "endLine": 359,
+                    "endColumn": 20,
+                    "content": "i=0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 359,
+                    "beginColumn": 21,
+                    "endLine": 359,
+                    "endColumn": 41,
+                    "content": "i<table_entries_used",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 360,
+                    "beginColumn": 43,
+                    "endLine": 360,
+                    "endColumn": 56,
+                    "content": "avio_rl32(pb)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 360,
+                    "beginColumn": 17,
+                    "endLine": 360,
+                    "endColumn": 56,
+                    "content": "nsv->nsvs_timestamps[i] = avio_rl32(pb)",
+                    "stmtKind": "BinaryOperator"
+                }
+            ]
+        },
+        {
+            "type": "npe-fix",
+            "sourceIndex": 2,
+            "locations": [
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 66,
+                    "beginColumn": 5,
+                    "endLine": 66,
+                    "endColumn": 22,
+                    "content": "void *ptr = NULL;",
+                    "stmtKind": "DeclStmt"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 72,
+                    "beginColumn": 8,
+                    "endLine": 72,
+                    "endColumn": 27,
+                    "content": "size > (INT_MAX-32)",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 83,
+                    "beginColumn": 9,
+                    "endLine": 83,
+                    "endColumn": 37,
+                    "content": "posix_memalign(&ptr,32,size)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 114,
+                    "beginColumn": 5,
+                    "endLine": 114,
+                    "endColumn": 15,
+                    "content": "return ptr",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavutil/mem.c",
+                    "beginLine": 64,
+                    "beginColumn": 1,
+                    "endLine": 115,
+                    "endColumn": 2,
+                    "content": "void *av_malloc(size_t size)\n{\n    void *ptr = NULL;\n#if CONFIG_MEMALIGN_HACK\n   ..."
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 358,
+                    "beginColumn": 13,
+                    "endLine": 358,
+                    "endColumn": 92,
+                    "content": "nsv->nsvs_timestamps = av_malloc((unsigned)table_entries_used*sizeof(uint32_t))",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 359,
+                    "beginColumn": 17,
+                    "endLine": 359,
+                    "endColumn": 20,
+                    "content": "i=0",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 359,
+                    "beginColumn": 21,
+                    "endLine": 359,
+                    "endColumn": 41,
+                    "content": "i<table_entries_used",
+                    "stmtKind": "BinaryOperator"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 386,
+                    "beginColumn": 5,
+                    "endLine": 386,
+                    "endColumn": 53,
+                    "content": "avio_seek(pb, nsv->base_offset + size, SEEK_SET)",
+                    "stmtKind": "CallExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 388,
+                    "beginColumn": 9,
+                    "endLine": 388,
+                    "endColumn": 24,
+                    "content": "pb->eof_reached",
+                    "stmtKind": "ImplicitCastExpr"
+                },
+                {
+                    "type": "stmt",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 389,
+                    "beginColumn": 9,
+                    "endLine": 389,
+                    "endColumn": 18,
+                    "content": "return -1",
+                    "stmtKind": "ReturnStmt"
+                },
+                {
+                    "type": "exit",
+                    "file": "/home/thebesttv/libav/libavformat/nsvdec.c",
+                    "beginLine": 272,
+                    "beginColumn": 1,
+                    "endLine": 392,
+                    "endColumn": 2,
+                    "content": "static int nsv_parse_NSVf_header(AVFormatContext *s)\n{\n    NSVContext *nsv = s-> ..."
+                }
+            ]
+        }
+    ]
+}
